@@ -30,22 +30,22 @@ fetch('http://localhost:3000/punk')
         console.log(data);
         const album = data[0]
         console.log(album.name);
-        const image = document.createElement('img');
-        image.src = album.image;
-        const name = document.createElement('h3');
-        name.textContent = album.name;
-        const artist = document.createElement('h4');
-        artist.textContent = album.artist;
-        const year = document.createElement('h4');
-        year.textContent = album.year;
-        mainbody.appendChild(image);
+        const albumImage = document.createElement('img');
+        albumImage.src = album.image;
+        const albumName = document.createElement('h3');
+        albumName.textContent = album.name;
+        const albumArtist = document.createElement('h4');
+        albumArtist.textContent = album.artist;
+        const albumYear = document.createElement('h4');
+        albumYear.textContent = album.year;
+        mainbody.appendChild(albumImage);
 
         //Add Mouseover Event
         const albumDesc = document.getElementById("popup")
-        image.onmouseover = function() {
+        albumImage.onmouseover = function() {
             albumDesc.style.display = "block";
         }
-        image.onmouseout = function() {
+        albumImage.onmouseout = function() {
             albumDesc.style.display = "none";
         }
 
