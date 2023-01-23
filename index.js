@@ -24,20 +24,30 @@
 
 const mainbody = document.querySelector('#mainbody')
 
-fetch('./db.json')
-    .then(res=>res.json())
-    .then(data=> {
+fetch('http://localhost:3000/punk')
+    .then(res => res.json())
+    .then(data => {
         console.log(data);
-        console.log(data.punk);
-        console.log(data.punk[0]);
-        console.log(data.punk[0].name);
+        const album = data[0]
+        console.log(album.name);
         const image = document.createElement('img');
-        image.src = data.punk[0].image;
+        image.src = album.image;
         const name = document.createElement('h3');
-        name.textContent = data.punk[0].name;
+        name.textContent = album.name;
         const artist = document.createElement('h4');
-        artist.textContent = data.punk[0].artist;
+        artist.textContent = album.artist;
         const year = document.createElement('h4');
-        year.textContent = data.punk[0].year;
+        year.textContent = album.year;
         mainbody.appendChild(image);
+
+        //Add Mouseover Event
+        const albumDesc = document.getElementById("popup")
+        image.onmouseover = function() {
+            albumDesc.style.display = "block";
+        }
+        image.onmouseout = function() {
+            albumDesc.style.display = "none";
+        }
+
+
     }) 
