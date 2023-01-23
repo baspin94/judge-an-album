@@ -22,6 +22,8 @@
 //     data.genres.forEach(genre => {console.log(genre.name)});
 // })
 
+const mainbody = document.querySelector('#mainbody')
+
 fetch('./db.json')
     .then(res=>res.json())
     .then(data=> {
@@ -29,4 +31,13 @@ fetch('./db.json')
         console.log(data.punk);
         console.log(data.punk[0]);
         console.log(data.punk[0].name);
+        const image = document.createElement('img');
+        image.src = data.punk[0].image;
+        const name = document.createElement('h3');
+        name.textContent = data.punk[0].name;
+        const artist = document.createElement('h4');
+        artist.textContent = data.punk[0].artist;
+        const year = document.createElement('h4');
+        year.textContent = data.punk[0].year;
+        mainbody.appendChild(image);
     }) 
