@@ -1,0 +1,12 @@
+#sidebar {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    border-right: 1px solid black;
+}
+
+#mainbody {
+    /* float: left; */
+    width: 80%;
+    padding: 10px;
+}
