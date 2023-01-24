@@ -50,12 +50,14 @@ function renderAlbums(album) {
         const albumYear = document.createElement('h4');
         albumYear.textContent = album.year;
 
+        //create div for each album thumbnail
+        const thumbDiv = document.createElement("div");
+
         // Next part will differ: 'album desc' is the tooltip that will appear on hover.
         const albumDesc = document.createElement("div");
         albumDesc.setAttribute("class", "tooltip");
         albumDesc.setAttribute("style", "display: none");
         albumDesc.append(albumName, albumArtist, albumYear);
-        singleAlbums.appendChild(albumDesc);
 
         albumImage.addEventListener('click', (e)=>{
             const singleAlbums = document.querySelector('#singleAlbums');
@@ -100,12 +102,15 @@ function renderAlbums(album) {
         });
         albumImage.addEventListener("mouseover", () => {
             console.log("hover!")
+            albumDesc.style.display = "block"
         });
         albumImage.addEventListener("mouseleave", () => {
             console.log("off!");
+            albumDesc.style.display = "none";
         });
-        albumBody.append(albumImage);
-        
+        albumBody.append(thumbDiv);
+        thumbDiv.appendChild(albumImage);
+        thumbDiv.appendChild(albumDesc);
 };
 
 genreSelect = document.querySelector('#genre-list');
