@@ -74,8 +74,6 @@ function renderAlbums(album) {
 
         // Defining button to be appended later.
         const saveButton = document.createElement('button');
-            saveButton.setAttribute("type","button");
-            saveButton.setAttribute("name","button");
             saveButton.textContent = 'Save Album';
 
         // Insert div beneath big image and within the div adds the 'save' button.
@@ -99,7 +97,6 @@ function renderAlbums(album) {
                 sidebar.appendChild(nameAndArtist)
                 saveButton.textContent = "Remove Album"
                 album.post = true;
-                saveAlbum();
 
             // Remove the name and artist from 'Saved Albums, update button text, set album 'post' status to false, calls the saveAlbum function.
             } else if (saveButton.textContent === "Remove Album") {
@@ -107,24 +104,21 @@ function renderAlbums(album) {
                 elementToRemove.remove();
                 saveButton.textContent = "Save Album";
                 album.post = false
-                saveAlbum();
             }
-
-            // Initate 'fetch' request to PATCH updated album 'post' status.
-            function saveAlbum() {                    
-                    fetch('http://localhost:3000' + `/${genreCurrent}/${albumId}`, {
-                        method: 'PATCH',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({'post': album.post})
-                    })
-                    
-            };
+            saveAlbum(genreCurrent, albumId, album);
         })
     });
 };
 
-
-
+// Initate 'fetch' request to PATCH updated album 'post' status.
+function saveAlbum(genreCurrent, albumId, album) {                    
+        fetch('http://localhost:3000' + `/${genreCurrent}/${albumId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({'post': album.post})
+        })
+        
+};
 
