@@ -66,18 +66,6 @@ function renderAlbums(album) {
             let bigImage = document.createElement('img');
             bigImage.src = album.image;
             bigImage.setAttribute('id','bigImage');
-            
-            // Add mouseover and mouseleave events.
-            bigImage.addEventListener("mouseover", () => {
-                //console.log(albumImage);
-                albumDesc.style.display = "block";
-            });
-
-            bigImage.addEventListener("mouseleave", ()=> {
-                //console.log("I'm out!");
-                albumDesc.style.display = "none";
-            });
-            
             singleAlbums.append(bigImage);
             const div = document.createElement('div');
             const saveButton = document.createElement('button')
