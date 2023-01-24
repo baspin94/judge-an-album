@@ -48,13 +48,32 @@ function renderAlbums(album) {
         const albumArtist = document.createElement('h4');
         albumArtist.textContent = album.artist;
         const albumYear = document.createElement('h4');
-        albumYear.textContent = album.year;
+        albumYear.textContent = album.year; 
+    }) 
+
         albumImage.addEventListener('click', (e)=>{
             const singleAlbums = document.querySelector('#singleAlbums');
             singleAlbums.innerHTML = '';
             let bigImage = document.createElement('img');
             bigImage.src = album.image;
             bigImage.setAttribute('id','bigImage');
+            
+            // Next part will differ: 'album desc' is the tooltip that will appear on hover.
+            const albumDesc = document.createElement("div");
+            albumDesc.setAttribute("class", "tooltip");
+            albumDesc.setAttribute("style", "display: none");
+            albumDesc.append(albumName, albumArtist, albumYear);
+            singleAlbums.appendChild(albumDesc);
+            
+            // Add mouseover and mouseleave events.
+            bigImage.addEventListener("mouseover", () => {
+              //console.log(albumImage);
+              albumDesc.style.display = "block";
+            });
+            albumImage.addEventListener("mouseleave", ()=> {
+            //console.log("I'm out!");
+            albumDesc.style.display = "none";
+        });
             singleAlbums.append(bigImage);
             const div = document.createElement('div');
             singleAlbums.appendChild(div);
