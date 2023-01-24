@@ -1,122 +1,130 @@
-// fetch('https://musicbrainz.org/ws/2/genre/all', {
-//     headers: {
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json'
-//     }
-// })
-// .then(res=>res.json())
-// .then(data=> {
-//     console.log(data.genres);
-//     data.genres.forEach(genre => {console.log(genre.name)});
-// })
+// Define variables for existing HTML elements.
+const mainbody = document.querySelector('#mainbody');
+const albumBody = document.querySelector('#albumBody');
+const sidebar = document.querySelector('#sidebar');
+const genreSelect = document.querySelector('#genre-list');
+const singleAlbums = document.querySelector('#singleAlbums');
 
-// fetch('https://musicbrainz.org/ws/2/genre/?query="funk"', {
-//     headers: {
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json'
-//     }
-// })
-// .then(res=>res.json())
-// .then(data=> {
-//     console.log(data.genres);
-//     data.genres.forEach(genre => {console.log(genre.name)});
-// })
+const bigImage = document.createElement('img');
+    bigImage.setAttribute('id','bigImage');
 
-const mainbody = document.querySelector('#mainbody')
-const albumBody = document.querySelector('#albumBody')
+// Fetch and render album thumbnails when new genre is selected from the dropdown.
+genreSelect.addEventListener('change', (e) => {
+    albumBody.innerHTML = ' ';
+        const genre = e.target.value.toLowerCase();
+        fetch('http://localhost:3000' + `/${genre}`)
+        .then(res=>res.json())
+        .then(data=> data.forEach(renderAlbums));
+    });
 
-    // function to add eventlistener to drop down to populate the albums
+// function to add eventlistener to drop down to populate the albums
 function renderAlbums(album) {
+    // Grab album image from album object.
     const albumImage = document.createElement('img');
         albumImage.src = album.image;
-        const albumName = document.createElement('h3');
-        albumName.textContent = album.name;
-        const albumArtist = document.createElement('h4');
-        albumArtist.textContent = album.artist;
-        const albumYear = document.createElement('h4');
-        albumYear.textContent = album.year;
-        const albumId = album.id 
 
-        //create div for each album thumbnail
-        const thumbDiv = document.createElement("div");
+    // Grab album name from album object.
+    const albumName = document.createElement('h3');
+        albumName.textContent = album.name;
+     
+    // Grab album artist from album object.    
+    const albumArtist = document.createElement('h4');
+        albumArtist.textContent = album.artist;
+    
+    // Grab album year from album object.
+    const albumYear = document.createElement('h4');
+        albumYear.textContent = album.year;
+
+    // Grab album id from album object.
+    const albumId = album.id 
+
+    // Create div for each album thumbnail
+    const thumbDiv = document.createElement("div");
         thumbDiv.setAttribute("class", "thumbnail");
 
-        // Next part will differ: 'album desc' is the tooltip that will appear on hover.
-        const albumDesc = document.createElement("div");
+    // Create tooltip for each album thumbnail.
+    const albumDesc = document.createElement("div");
         albumDesc.setAttribute("class", "tooltip");
-        albumDesc.setAttribute("style", "display: none");
         albumDesc.append(albumName, albumArtist, albumYear);
 
-        albumImage.addEventListener('click', (e)=> {
-            const singleAlbums = document.querySelector('#singleAlbums');
-            singleAlbums.innerHTML = '';
-            let bigImage = document.createElement('img');
-            bigImage.src = album.image;
-            bigImage.setAttribute('id','bigImage');
-            
-            singleAlbums.appendChild(albumDesc);
-            
+        // Create event listener to show tooltip when mouse hovers over thumbnail.
+        albumImage.addEventListener("mouseover", () => {
+            albumDesc.style.display = "block"
+        });
+
+        // Create event listener to hide tooltip when mouse leaves thumbnail.
+        albumImage.addEventListener("mouseleave", () => {
+            albumDesc.style.display = "none";
+        });
+
+    // Add image and tooltip to div and append it to album body.
+    albumBody.append(thumbDiv);
+    thumbDiv.appendChild(albumImage);
+    thumbDiv.appendChild(albumDesc);
+
+    // Create event listener for each album thumbnail.
+    albumImage.addEventListener('click', ()=> {
+
+        // Clear out whatever is currently in the album viewing area.
+        singleAlbums.innerHTML = '';
+        
+        // Set the big image 'src' to be the corresponding album's cover art and append to DOM.
+        bigImage.src = album.image;
         singleAlbums.append(bigImage);
+
+        // Defining button to be appended later.
+        const saveButton = document.createElement('button');
+            saveButton.setAttribute("type","button");
+            saveButton.setAttribute("name","button");
+            saveButton.textContent = 'Save Album';
+
+        // Insert div beneath big image and within the div adds the 'save' button.
         const div = document.createElement('div');
         singleAlbums.appendChild(div);
         div.appendChild(saveButton);
+
+        // Create paragraph for name and artist to appear in 'Saved Albums'
         const nameAndArtist = document.createElement('p');
         nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
-        nameAndArtist.textContent = `${album.name} by ${album.artist}`
+        nameAndArtist.textContent = `"${album.name}" by ${album.artist}`
+
+        // Create event listener for 'save' button click.
         saveButton.addEventListener('click', ()=>{
-                genreCurrent = genreSelect.value.toLowerCase();
-                if (saveButton.textContent === "Save Album") {
-                    sidebar.appendChild(nameAndArtist)
-                    saveButton.textContent = "Remove Album"
-                    album.post = true;
-                    saveAlbum();
-                } else if (saveButton.textContent === "Remove Album") {
-                    let elementToRemove = document.querySelector(`#${album.name.replaceAll(' ','')}`);
-                    // debugger
-                    elementToRemove.remove();
-                    saveButton.textContent = "Save Album";
-                    album.post = false
-                    saveAlbum();
-                }
-                function saveAlbum() {                    
-                        fetch('http://localhost:3000' + `/${genreCurrent}/${albumId}`, {
-                            method: 'PATCH',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({'post': album.post})
-                        })
-                        
-                };
-            })
-        });
-        albumImage.addEventListener("mouseover", () => {
-            console.log("hover!")
-            albumDesc.style.display = "block"
-        });
-        albumImage.addEventListener("mouseleave", () => {
-            console.log("off!");
-            albumDesc.style.display = "none";
-        });
-        albumBody.append(thumbDiv);
-        thumbDiv.appendChild(albumImage);
-        thumbDiv.appendChild(albumDesc);
+            
+            // Convert genre name to lowercase to be inserted into URL during fetch.
+            genreCurrent = genreSelect.value.toLowerCase();
+
+            // Append the name and artist to 'Saved Albums', update button text, set album 'post' status to true, calls the saveAlbum function.
+            if (saveButton.textContent === "Save Album") {
+                sidebar.appendChild(nameAndArtist)
+                saveButton.textContent = "Remove Album"
+                album.post = true;
+                saveAlbum();
+
+            // Remove the name and artist from 'Saved Albums, update button text, set album 'post' status to false, calls the saveAlbum function.
+            } else if (saveButton.textContent === "Remove Album") {
+                let elementToRemove = document.querySelector(`#${album.name.replaceAll(' ','')}`);
+                elementToRemove.remove();
+                saveButton.textContent = "Save Album";
+                album.post = false
+                saveAlbum();
+            }
+
+            // Initate 'fetch' request to PATCH updated album 'post' status.
+            function saveAlbum() {                    
+                    fetch('http://localhost:3000' + `/${genreCurrent}/${albumId}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({'post': album.post})
+                    })
+                    
+            };
+        })
+    });
 };
 
-genreSelect = document.querySelector('#genre-list');
 
- 
-genreSelect.addEventListener('change', (e) => {
-   albumBody.innerHTML = ' ';
-    const genre = e.target.value.toLowerCase();
-    fetch('http://localhost:3000' + `/${genre}`)
-    .then(res=>res.json())
-    .then(data=> data.forEach(renderAlbums));
-});
-const sidebar = document.querySelector('#sidebar')
 
-const saveButton = document.createElement('button')
-saveButton.setAttribute("type","button")
-saveButton.setAttribute("name","button")
-saveButton.textContent = 'Save Album'
 
