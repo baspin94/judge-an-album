@@ -73,6 +73,7 @@ footer {
 
 #bigImage {
     width: 300px;
+}
     
 /* Added tooltip formatting to get it to appear below the album. This can definitely be tweaked further! */
 .tooltip {

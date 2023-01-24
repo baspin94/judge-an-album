@@ -49,7 +49,6 @@ function renderAlbums(album) {
         albumArtist.textContent = album.artist;
         const albumYear = document.createElement('h4');
         albumYear.textContent = album.year; 
-    }) 
 
         albumImage.addEventListener('click', (e)=>{
             const singleAlbums = document.querySelector('#singleAlbums');
