@@ -69,12 +69,18 @@ function renderAlbums(album) {
                 console.log(albumImage);
                 albumDesc.style.display = "block";
             });
+
             bigImage.addEventListener("mouseleave", ()=> {
                 console.log("I'm out!");
                 albumDesc.style.display = "none";
-        });
+            });
+            
             singleAlbums.append(bigImage);
             const div = document.createElement('div');
+            const saveButton = document.createElement('button')
+            saveButton.setAttribute("type","button")
+            saveButton.setAttribute("name","button")
+            saveButton.textContent = 'Save Album'
             singleAlbums.appendChild(div);
             div.appendChild(saveButton);
             const nameAndArtist = document.createElement('p');
@@ -107,7 +113,3 @@ genreSelect.addEventListener('change', (e) => {
 });
 const sidebar = document.querySelector('#sidebar')
 
-const saveButton = document.createElement('button')
-saveButton.setAttribute("type","button")
-saveButton.setAttribute("name","button")
-saveButton.textContent = 'Save Album'
