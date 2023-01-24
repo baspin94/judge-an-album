@@ -47,15 +47,30 @@ footer {
 }
 
 #mainbody {
-    float: right;
+    float: left;
     position: relative;
     padding: 10px;
     padding-left: 50px;
-    /* padding-top: 30px; */
-    /* padding-bottom: -30px; */
     background: lightblue;
     width: 685px;
     border: 20px;
     height: 100%;
 }
 
+#albumBody {
+    float: right;
+    position: relative;
+    padding: 10px;
+    padding-left: 50px;
+    background: lightblue;
+    width: 100px;
+    border: 20px;
+}
+
+#albumBody img {
+    width: 100px;
+}
+
+#bigImage {
+    width: 300px;
+}

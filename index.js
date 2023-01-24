@@ -49,7 +49,33 @@ function renderAlbums(album) {
         albumArtist.textContent = album.artist;
         const albumYear = document.createElement('h4');
         albumYear.textContent = album.year;
-        albumBody.append(albumImage, albumName, albumArtist, albumYear);
+        albumImage.addEventListener('click', (e)=>{
+            const singleAlbums = document.querySelector('#singleAlbums');
+            singleAlbums.innerHTML = '';
+            let bigImage = document.createElement('img');
+            bigImage.src = album.image;
+            bigImage.setAttribute('id','bigImage');
+            singleAlbums.append(bigImage);
+            const div = document.createElement('div');
+            singleAlbums.appendChild(div);
+            div.appendChild(saveButton);
+            const nameAndArtist = document.createElement('p');
+            nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
+            nameAndArtist.textContent = `${album.name} by ${album.artist}`
+            saveButton.addEventListener('click', ()=>{
+                if (saveButton.textContent === "Save Album") {
+                    sidebar.appendChild(nameAndArtist)
+                    saveButton.textContent = "Remove Album"
+                } else if (saveButton.textContent === "Remove Album") {
+                    let elementToRemove = document.querySelector(`#${album.name.replaceAll(' ','')}`);
+                    // debugger
+                    elementToRemove.remove();
+                    saveButton.textContent = "Save Album"
+                }
+            })
+        });
+        albumBody.append(albumImage);
+        
 };
 
 genreSelect = document.querySelector('#genre-list');
@@ -67,39 +93,3 @@ const saveButton = document.createElement('button')
 saveButton.setAttribute("type","button")
 saveButton.setAttribute("name","button")
 saveButton.textContent = 'Save Album'
-
-fetch('http://localhost:3000/punk')
-    .then(res=>res.json())
-    .then(data=> {
-        let album = data[0];
-        console.log(album);
-        const albumImage = document.createElement('img');
-        albumImage.src = data[0].image;
-        const albumName = document.createElement('h3');
-        albumName.textContent = data[0].name;
-        const albumArtist = document.createElement('h4');
-        albumArtist.textContent = data[0].artist;
-        const albumYear = document.createElement('h4');
-        albumYear.textContent = data[0].year;
-        mainbody.appendChild(albumImage);
-        
-        /////////////
-        const div = document.createElement('div');
-        mainbody.appendChild(div);
-        div.appendChild(saveButton);
-        const nameAndArtist = document.createElement('p');
-        nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
-        nameAndArtist.textContent = `${album.name} by ${album.artist}`
-        saveButton.addEventListener('click', ()=>{
-            if (saveButton.textContent === "Save Album") {
-                sidebar.appendChild(nameAndArtist)
-                saveButton.textContent = "Remove Album"
-            } else if (saveButton.textContent === "Remove Album") {
-                let elementToRemove = document.querySelector(`#${album.name.replaceAll(' ','')}`);
-                // debugger
-                elementToRemove.remove();
-                saveButton.textContent = "Save Album"
-            }
-        })
-
-    }) 
