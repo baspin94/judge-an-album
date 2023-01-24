@@ -10,3 +10,27 @@
     width: 80%;
     padding: 10px;
 }
+
+/* Added album div to hold the album image and corresponding tooltip. */
+.album {
+    position: relative;
+    display: flex;
+    place-content: center;
+}
+
+/* Added tooltip formatting to get it to appear below the album. This can definitely be tweaked further! */
+.tooltip {
+    display: none;
+    position: absolute;
+    width: relative;
+    top: 80%;
+    left: 50%;
+    margin-left: -60px;
+    text-align: center;
+    background: #00732c;
+    padding: 8px;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 2px;
+    animation: fadeIn 0.6s;
+}
