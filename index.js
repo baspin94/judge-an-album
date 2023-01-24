@@ -99,7 +99,6 @@ function renderAlbums(album) {
                 sidebar.appendChild(nameAndArtist)
                 saveButton.textContent = "Remove Album"
                 album.post = true;
-                saveAlbum();
 
             // Remove the name and artist from 'Saved Albums, update button text, set album 'post' status to false, calls the saveAlbum function.
             } else if (saveButton.textContent === "Remove Album") {
@@ -107,24 +106,21 @@ function renderAlbums(album) {
                 elementToRemove.remove();
                 saveButton.textContent = "Save Album";
                 album.post = false
-                saveAlbum();
             }
-
-            // Initate 'fetch' request to PATCH updated album 'post' status.
-            function saveAlbum() {                    
-                    fetch('http://localhost:3000' + `/${genreCurrent}/${albumId}`, {
-                        method: 'PATCH',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({'post': album.post})
-                    })
-                    
-            };
+            saveAlbum(genreCurrent, albumId, album);
         })
     });
 };
 
-
-
+// Initate 'fetch' request to PATCH updated album 'post' status.
+function saveAlbum(genreCurrent, albumId, album) {                    
+        fetch('http://localhost:3000' + `/${genreCurrent}/${albumId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({'post': album.post})
+        })
+        
+};
 
