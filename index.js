@@ -47,7 +47,9 @@ fetch('http://localhost:3000/punk')
         mainbody.appendChild(albumImage);
         
         /////////////
-        mainbody.appendChild(saveButton);
+        const div = document.createElement('div');
+        mainbody.appendChild(div);
+        div.appendChild(saveButton);
         const nameAndArtist = document.createElement('p');
         nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
         nameAndArtist.textContent = `${album.name} by ${album.artist}`
