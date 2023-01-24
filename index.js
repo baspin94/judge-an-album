@@ -24,20 +24,6 @@
 
 const mainbody = document.querySelector('#mainbody')
 const albumBody = document.querySelector('#albumBody')
-        // console.log(data);
-        // console.log(data.punk);
-        // console.log(data.punk[0]);
-        // console.log(data.punk[0].name);
-        // const image = document.createElement('img');
-        // image.src = data.punk[0].image;
-        // const name = document.createElement('h3');
-        // name.textContent = data.punk[0].name;
-        // const artist = document.createElement('h4');
-        // artist.textContent = data.punk[0].artist;
-        // const year = document.createElement('h4');
-        // year.textContent = data.punk[0].year;
-        // mainbody.append(image);
-    //}) 
 
     // function to add eventlistener to drop down to populate the albums
 function renderAlbums(album) {
@@ -49,6 +35,7 @@ function renderAlbums(album) {
         albumArtist.textContent = album.artist;
         const albumYear = document.createElement('h4');
         albumYear.textContent = album.year;
+        const albumId = album.id 
 
         //create div for each album thumbnail
         const thumbDiv = document.createElement("div");
@@ -60,33 +47,47 @@ function renderAlbums(album) {
         albumDesc.setAttribute("style", "display: none");
         albumDesc.append(albumName, albumArtist, albumYear);
 
-        albumImage.addEventListener('click', (e)=>{
+        albumImage.addEventListener('click', (e)=> {
             const singleAlbums = document.querySelector('#singleAlbums');
             singleAlbums.innerHTML = '';
             let bigImage = document.createElement('img');
             bigImage.src = album.image;
             bigImage.setAttribute('id','bigImage');
-            singleAlbums.append(bigImage);
-            const div = document.createElement('div');
-            const saveButton = document.createElement('button')
-            saveButton.setAttribute("type","button")
-            saveButton.setAttribute("name","button")
-            saveButton.textContent = 'Save Album'
-            singleAlbums.appendChild(div);
-            div.appendChild(saveButton);
-            const nameAndArtist = document.createElement('p');
-            nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
-            nameAndArtist.textContent = `${album.name} by ${album.artist}`
-            saveButton.addEventListener('click', ()=>{
+            
+            singleAlbums.appendChild(albumDesc);
+            
+        singleAlbums.append(bigImage);
+        const div = document.createElement('div');
+        singleAlbums.appendChild(div);
+        div.appendChild(saveButton);
+        const nameAndArtist = document.createElement('p');
+        nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
+        nameAndArtist.textContent = `${album.name} by ${album.artist}`
+        saveButton.addEventListener('click', ()=>{
+                genreCurrent = genreSelect.value.toLowerCase();
                 if (saveButton.textContent === "Save Album") {
                     sidebar.appendChild(nameAndArtist)
                     saveButton.textContent = "Remove Album"
+                    album.post = true;
+                    saveAlbum();
                 } else if (saveButton.textContent === "Remove Album") {
                     let elementToRemove = document.querySelector(`#${album.name.replaceAll(' ','')}`);
                     // debugger
                     elementToRemove.remove();
-                    saveButton.textContent = "Save Album"
+                    saveButton.textContent = "Save Album";
+                    album.post = false
+                    saveAlbum();
                 }
+                function saveAlbum() {                    
+                        fetch('http://localhost:3000' + `/${genreCurrent}/${albumId}`, {
+                            method: 'PATCH',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({'post': album.post})
+                        })
+                        
+                };
             })
         });
         albumImage.addEventListener("mouseover", () => {
@@ -103,6 +104,7 @@ function renderAlbums(album) {
 };
 
 genreSelect = document.querySelector('#genre-list');
+
  
 genreSelect.addEventListener('change', (e) => {
    albumBody.innerHTML = ' ';
@@ -112,4 +114,9 @@ genreSelect.addEventListener('change', (e) => {
     .then(data=> data.forEach(renderAlbums));
 });
 const sidebar = document.querySelector('#sidebar')
+
+const saveButton = document.createElement('button')
+saveButton.setAttribute("type","button")
+saveButton.setAttribute("name","button")
+saveButton.textContent = 'Save Album'
 
