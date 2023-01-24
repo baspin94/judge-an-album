@@ -74,8 +74,6 @@ function renderAlbums(album) {
 
         // Defining button to be appended later.
         const saveButton = document.createElement('button');
-            saveButton.setAttribute("type","button");
-            saveButton.setAttribute("name","button");
             saveButton.textContent = 'Save Album';
 
         // Insert div beneath big image and within the div adds the 'save' button.
