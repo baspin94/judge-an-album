@@ -52,6 +52,7 @@ function renderAlbums(album) {
 
         //create div for each album thumbnail
         const thumbDiv = document.createElement("div");
+        thumbDiv.setAttribute("class", "thumbnail");
 
         // Next part will differ: 'album desc' is the tooltip that will appear on hover.
         const albumDesc = document.createElement("div");
