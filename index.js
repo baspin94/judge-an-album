@@ -98,6 +98,12 @@ function renderAlbums(album) {
                 }
             })
         });
+        albumImage.addEventListener("mouseover", () => {
+            console.log("hover!")
+        });
+        albumImage.addEventListener("mouseleave", () => {
+            console.log("off!");
+        });
         albumBody.append(albumImage);
         
 };
