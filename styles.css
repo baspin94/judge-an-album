@@ -79,21 +79,25 @@ footer {
 .tooltip {
     display: none;
     position: absolute;
-    width: 284px;
-    top: 75px;
-    left: 60px;
-    margin-left: -60px;
+    width: 200px;
+    height: 85px;
+    top: 0px;
+    right: 105%;
     text-align: center;
     background: #ffffff;
     opacity: 0.8;
-    padding: 8px;
-    font-size: 1rem;
+    padding: 6px;
+    font-size: 0.75em;
     color: black;
     border-radius: 2px;
     animation: fadeIn 0.6s;
 }
 
-#singleAlbums {
+.tooltip h4 {
+    line-height: 0.5em;
+}
+
+.thumbnail {
     position: relative;
     display: inline-block;
 }
