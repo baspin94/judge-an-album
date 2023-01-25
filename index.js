@@ -27,6 +27,7 @@ function makeButton(album){
     return saveButton;
 };
 
+// NEW - Bianca - Function to add event listener to save button.
 function saveButtonEvent(album, saveButton){
     saveButton.addEventListener('click', ()=>{
         if (saveButton.textContent === "Save Album") {
@@ -47,7 +48,6 @@ function saveButtonEvent(album, saveButton){
 // NEW - Bianca - Function to grab name and artist from album object.
 function nameArtistGrab(album, saveButton) {
     const nameAndArtist = document.createElement('p');
-        //nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
         nameAndArtist.setAttribute('id', `album_${album.id}`);
         nameAndArtist.textContent = `"${album.name}" by ${album.artist}`;
         sidebar.appendChild(nameAndArtist);
@@ -60,8 +60,6 @@ function nameArtistGrab(album, saveButton) {
             singleAlbums.append(bigImage);
             singleAlbums.appendChild(div);
             div.appendChild(saveButton);
-            //saveButton.setAttribute('id', `album_${album.id}`);
-            //saveButton.textContent = 'Remove Album';
         })
 }
 
