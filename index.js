@@ -16,7 +16,9 @@ fetch("http://localhost:3000/saved")
 // NEW - Bianca - Function to grab name and artist from album object.
 function renderSavedAlbum(album) {
     let button = makeButton(album);
-    nameArtistGrab(album, button);
+    savedAlbumButton(button, album);
+    let nameArtist = nameArtistGrab(album);
+    nameAndArtistEvent(nameArtist, album, button);
 };
 
 // NEW - Bianca - Function to create a button.
@@ -45,22 +47,29 @@ function saveButtonEvent(album, saveButton){
     return saveButton;
 }
 
+function savedAlbumButton(saveButton, album) {
+    saveButton.textContent = "Remove Album";
+    saveButton.setAttribute('id', `album_${album.id}`);
+};
+
+function nameAndArtistEvent(nameAndArtist, album, saveButton) {
+    nameAndArtist.addEventListener('click', ()=>{
+        const div = document.createElement('div');
+        singleAlbums.innerHTML = '';
+        bigImage.src = album.image;
+        singleAlbums.append(bigImage);
+        singleAlbums.appendChild(div);
+        div.appendChild(saveButton);
+    })
+};
+
 // NEW - Bianca - Function to grab name and artist from album object.
-function nameArtistGrab(album, saveButton) {
+function nameArtistGrab(album) {
     const nameAndArtist = document.createElement('p');
         nameAndArtist.setAttribute('id', `album_${album.id}`);
         nameAndArtist.textContent = `"${album.name}" by ${album.artist}`;
         sidebar.appendChild(nameAndArtist);
-        saveButton.textContent = "Remove Album";
-        saveButton.setAttribute('id', `album_${album.id}`);
-        nameAndArtist.addEventListener('click', ()=>{
-            const div = document.createElement('div');
-            singleAlbums.innerHTML = '';
-            bigImage.src = album.image;
-            singleAlbums.append(bigImage);
-            singleAlbums.appendChild(div);
-            div.appendChild(saveButton);
-        })
+        return nameAndArtist;
 }
 
 // Fetch and render album thumbnails when new genre is selected from the dropdown.
@@ -152,7 +161,8 @@ function renderAlbums(album) {
         nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
         nameAndArtist.textContent = `"${album.name}" by ${album.artist}`
 
-        // NEW - NICK - create event listener on the saved album which will repopulate the big image
+        // NEW - Bianca - Moved this into the nameArtistGrab function.
+        /* // NEW - NICK - create event listener on the saved album which will repopulate the big image
         nameAndArtist.addEventListener('click', ()=>{
             singleAlbums.innerHTML = '';
             bigImage.src = album.image;
@@ -160,7 +170,7 @@ function renderAlbums(album) {
             singleAlbums.appendChild(div);
             div.appendChild(saveButton);
             saveButton.textContent = 'Remove Album';
-        })
+        }) */
 
         // NEW - Bianca - Removed and Added to makeButton function.
         // Create event listener for 'save' button click.
