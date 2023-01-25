@@ -13,11 +13,26 @@ fetch("http://localhost:3000/saved")
     .then(res => res.json())
     .then(data => data.forEach(album => renderSavedAlbum(album)));
 
+// Function to grab name and artist from album object.
 function renderSavedAlbum(album) {
+    // Defining button to be appended later.
+    const saveButton = document.createElement('button');
+    saveButton.setAttribute("type","button");
+    saveButton.setAttribute("name","button");
+    // Insert div beneath big image and within the div adds the 'save' button.
+    const div = document.createElement('div');
     const nameAndArtist = document.createElement('p');
         nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
         nameAndArtist.textContent = `"${album.name}" by ${album.artist}`;
         sidebar.appendChild(nameAndArtist);
+        nameAndArtist.addEventListener('click', ()=>{
+            singleAlbums.innerHTML = '';
+            bigImage.src = album.image;
+            singleAlbums.append(bigImage);
+            singleAlbums.appendChild(div);
+            div.appendChild(saveButton);
+            saveButton.textContent = 'Remove Album';
+        })
 };
 
 // Fetch and render album thumbnails when new genre is selected from the dropdown.
@@ -106,7 +121,7 @@ function renderAlbums(album) {
         nameAndArtist.textContent = `"${album.name}" by ${album.artist}`
 
         // NEW - NICK - create event listener on the saved album which will repopulate the big image
-        nameAndArtist.addEventListener('click', (e)=>{
+        nameAndArtist.addEventListener('click', ()=>{
             singleAlbums.innerHTML = '';
             bigImage.src = album.image;
             singleAlbums.append(bigImage);
