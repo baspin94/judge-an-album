@@ -13,7 +13,7 @@ fetch("http://localhost:3000/saved")
     .then(res => res.json())
     .then(data => data.forEach(album => renderSavedAlbum(album)));
 
-// NEW - Bianca - Function to grab name and artist from album object.
+// NEW - Bianca - Function to grab name and artist from album object and then add event listener to it.
 function renderSavedAlbum(album) {
     let button = makeButton(album);
     savedAlbumButton(button, album);
@@ -156,10 +156,12 @@ function renderAlbums(album) {
         singleAlbums.appendChild(div);
         div.appendChild(saveButton);
 
-        // Create paragraph for name and artist to appear in 'Saved Albums'
+        //let nameArtist = nameArtistGrab(album);
+        //nameAndArtistEvent(nameArtist, album, saveButton);
+        /* // Create paragraph for name and artist to appear in 'Saved Albums'
         const nameAndArtist = document.createElement('p');
         nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
-        nameAndArtist.textContent = `"${album.name}" by ${album.artist}`
+        nameAndArtist.textContent = `"${album.name}" by ${album.artist}` */
 
         // NEW - Bianca - Moved this into the nameArtistGrab function.
         /* // NEW - NICK - create event listener on the saved album which will repopulate the big image
