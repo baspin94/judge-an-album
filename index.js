@@ -8,6 +8,18 @@ const singleAlbums = document.querySelector('#singleAlbums');
 const bigImage = document.createElement('img');
     bigImage.setAttribute('id','bigImage');
 
+// Fetch and render 'Saved' albums on page load.
+fetch("http://localhost:3000/saved")
+    .then(res => res.json())
+    .then(data => data.forEach(album => renderSavedAlbum(album)));
+
+function renderSavedAlbum(album) {
+    const nameAndArtist = document.createElement('p');
+        nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
+        nameAndArtist.textContent = `"${album.name}" by ${album.artist}`;
+        sidebar.appendChild(nameAndArtist);
+};
+
 // Fetch and render album thumbnails when new genre is selected from the dropdown.
 genreSelect.addEventListener('change', (e) => {
     albumBody.innerHTML = ' ';
