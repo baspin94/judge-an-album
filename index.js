@@ -4,6 +4,8 @@ const albumBody = document.querySelector('#albumBody');
 const sidebar = document.querySelector('#sidebar');
 const genreSelect = document.querySelector('#genre-list');
 const singleAlbums = document.querySelector('#singleAlbums');
+// NEW - NICK - define variable for song sample functionality
+const spotifySampler = document.querySelector('iframe');
 
 const bigImage = document.createElement('img');
     bigImage.setAttribute('id','bigImage');
@@ -88,9 +90,9 @@ function renderAlbums(album) {
         albumImage.src = album.image;
 
     // Grab album name from album object.
-    const albumName = document.createElement('h3');
-        albumName.textContent = album.name;
-     
+        const albumName = document.createElement('h3');
+            albumName.textContent = album.name;
+        
     // Grab album artist from album object.    
     const albumArtist = document.createElement('h4');
         albumArtist.textContent = album.artist;
@@ -102,6 +104,9 @@ function renderAlbums(album) {
     // NEW - Bianca - Removed this.
     // Grab album id from album object.
     //const albumId = album.id 
+
+    // NEW - NICK - Grab song sample src from album object.
+    const albumSample = album.sampleSrc;
 
     // Create div for each album thumbnail
     const thumbDiv = document.createElement("div");
@@ -115,27 +120,68 @@ function renderAlbums(album) {
         // Create event listener to show tooltip when mouse hovers over thumbnail.
         albumImage.addEventListener("mouseover", () => {
             albumDesc.style.display = "block"
+
+            // NEW - NICK - animation
+            albumDesc.animate({
+            width: ['0px', '200px']
+                }, 200
+            );
+            function textAnimate(textElement){
+                textElement.animate({
+                    opacity: ['0', '0', '1'],
+                    offset: ['0', '0.5', '1']
+                }, 350)
+            }
+            [albumName, albumArtist, albumYear].forEach(textAnimate);
         });
 
         // Create event listener to hide tooltip when mouse leaves thumbnail.
         albumImage.addEventListener("mouseleave", () => {
-            albumDesc.style.display = "none";
+            // NEW - NICK - animation
+            albumDesc.animate({
+                width: ['200px', '0px']
+                    }, 100
+                ).finished.then(()=>{albumDesc.style.display = "none"}
+            );
+            function textAnimate(textElement){
+                textElement.animate({
+                    opacity: ['1', '0', '0'],
+                    offset: ['0', '0.1', '1']
+                }, 100)
+            }
+            [albumName, albumArtist, albumYear].forEach(textAnimate);
         });
 
     // Add image and tooltip to div and append it to album body.
     albumBody.append(thumbDiv);
     thumbDiv.appendChild(albumImage);
     thumbDiv.appendChild(albumDesc);
+    
+    // Set the big image 'src' to be the corresponding album's cover art and append to DOM.
+    bigImage.src = album.image;
+    // Grab album name from album object.
+    const bigAlbumName = document.createElement('h3');
+        bigAlbumName.textContent = album.name;
+    
+    // Grab album artist from album object.    
+    const bigAlbumArtist = document.createElement('h4');
+    bigAlbumArtist.textContent = album.artist;
 
+    // Grab album year from album object.
+    const bigAlbumYear = document.createElement('h4');
+    bigAlbumYear.textContent = album.year;
+
+    function mainAppend() {
+        singleAlbums.append(bigImage, bigAlbumName, bigAlbumArtist, bigAlbumYear);
+    }
+    
     // Create event listener for each album thumbnail.
     albumImage.addEventListener('click', ()=> {
 
         // Clear out whatever is currently in the album viewing area.
         singleAlbums.innerHTML = '';
-        
-        // Set the big image 'src' to be the corresponding album's cover art and append to DOM.
         bigImage.src = album.image;
-        singleAlbums.append(bigImage);
+        mainAppend();
 
         // NEW - Bianca - Removed and replaced with 'Save Button'
         /* // Defining button to be appended later.
@@ -155,10 +201,15 @@ function renderAlbums(album) {
         const div = document.createElement('div');
         singleAlbums.appendChild(div);
         div.appendChild(saveButton);
+        
+        // NEW - NICK - add src to the song sample functionality
+        spotifySampler.src = albumSample;
 
         //let nameArtist = nameArtistGrab(album);
         //nameAndArtistEvent(nameArtist, album, saveButton);
         /* // Create paragraph for name and artist to appear in 'Saved Albums'
+        
+        // Create paragraph for name and artist to appear in 'Saved Albums'
         const nameAndArtist = document.createElement('p');
         nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
         nameAndArtist.textContent = `"${album.name}" by ${album.artist}` */
@@ -168,9 +219,10 @@ function renderAlbums(album) {
         nameAndArtist.addEventListener('click', ()=>{
             singleAlbums.innerHTML = '';
             bigImage.src = album.image;
-            singleAlbums.append(bigImage);
+            mainAppend();
             singleAlbums.appendChild(div);
             div.appendChild(saveButton);
+            spotifySampler.src = albumSample;
             saveButton.textContent = 'Remove Album';
         }) */
 

@@ -72,6 +72,11 @@ footer {
     width: 100px;
 }
 
+#singleAlbums {
+    text-align: justify;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
 #bigImage {
     width: 300px;
 }
