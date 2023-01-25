@@ -15,17 +15,24 @@ fetch("http://localhost:3000/saved")
 
 // Function to grab name and artist from album object.
 function renderSavedAlbum(album) {
-    // Defining button to be appended later.
-    const saveButton = document.createElement('button');
+    let button = makeButton();
+    nameArtistGrab(album, button);
+};
+
+function makeButton(){
+    const saveButton = document.createElement('button')
     saveButton.setAttribute("type","button");
     saveButton.setAttribute("name","button");
-    // Insert div beneath big image and within the div adds the 'save' button.
-    const div = document.createElement('div');
+    return saveButton;
+};
+
+function nameArtistGrab(album, saveButton) {
     const nameAndArtist = document.createElement('p');
         nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
         nameAndArtist.textContent = `"${album.name}" by ${album.artist}`;
         sidebar.appendChild(nameAndArtist);
         nameAndArtist.addEventListener('click', ()=>{
+            const div = document.createElement('div');
             singleAlbums.innerHTML = '';
             bigImage.src = album.image;
             singleAlbums.append(bigImage);
@@ -33,7 +40,7 @@ function renderSavedAlbum(album) {
             div.appendChild(saveButton);
             saveButton.textContent = 'Remove Album';
         })
-};
+}
 
 // Fetch and render album thumbnails when new genre is selected from the dropdown.
 genreSelect.addEventListener('change', (e) => {
