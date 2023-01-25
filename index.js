@@ -22,25 +22,27 @@ function renderSavedAlbum(album) {
 // NEW - Bianca - Function to create a button.
 function makeButton(album){
     const saveButton = document.createElement('button')
-        //saveButton.setAttribute("type","button");
-        //saveButton.setAttribute("name","button");
         saveButton.textContent = "Save Album";
-        saveButton.addEventListener('click', ()=>{
-            if (saveButton.textContent === "Save Album") {
-                saveAlbum(album, saveButton);
-                //saveButton.textContent = "Remove Album";
-            } else if (saveButton.textContent === "Remove Album") {
-                let albumId = saveButton.id.split('_')[1];
-                console.log("This album's ID is " + albumId);
-                removeAlbum(albumId);
-                let elementToRemove = document.querySelector(`p#album_${albumId}`);
-                elementToRemove.remove();
-                saveButton.textContent = "Save Album";
-                saveButton.id = "";
-            }
-        })
+        saveButtonEvent(album, saveButton);
     return saveButton;
 };
+
+function saveButtonEvent(album, saveButton){
+    saveButton.addEventListener('click', ()=>{
+        if (saveButton.textContent === "Save Album") {
+            saveAlbum(album, saveButton);
+        } else if (saveButton.textContent === "Remove Album") {
+            let albumId = saveButton.id.split('_')[1];
+            console.log("This album's ID is " + albumId);
+            removeAlbum(albumId);
+            let elementToRemove = document.querySelector(`p#album_${albumId}`);
+            elementToRemove.remove();
+            saveButton.textContent = "Save Album";
+            saveButton.id = "";
+        }
+    })
+    return saveButton;
+}
 
 // NEW - Bianca - Function to grab name and artist from album object.
 function nameArtistGrab(album, saveButton) {
