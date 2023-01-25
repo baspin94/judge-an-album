@@ -86,6 +86,16 @@ function renderAlbums(album) {
         nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
         nameAndArtist.textContent = `"${album.name}" by ${album.artist}`
 
+        // NEW - NICK - create event listener on the saved album which will repopulate the big image
+        nameAndArtist.addEventListener('click', (e)=>{
+            singleAlbums.innerHTML = '';
+            bigImage.src = album.image;
+            singleAlbums.append(bigImage);
+            singleAlbums.appendChild(div);
+            div.appendChild(saveButton);
+            saveButton.textContent = 'Remove Album';
+        })
+
         // Create event listener for 'save' button click.
         saveButton.addEventListener('click', ()=>{
             
