@@ -82,6 +82,7 @@ function renderAlbums(album) {
                 saveButton.textContent = 'Save Album';
             };
 
+
         // Insert div beneath big image and within the div adds the 'save' button.
         const div = document.createElement('div');
         singleAlbums.appendChild(div);
@@ -92,6 +93,16 @@ function renderAlbums(album) {
         nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
         nameAndArtist.textContent = `"${album.name}" by ${album.artist}`
 
+        // NEW - NICK - create event listener on the saved album which will repopulate the big image
+        nameAndArtist.addEventListener('click', (e)=>{
+            singleAlbums.innerHTML = '';
+            bigImage.src = album.image;
+            singleAlbums.append(bigImage);
+            singleAlbums.appendChild(div);
+            div.appendChild(saveButton);
+            saveButton.textContent = 'Remove Album';
+        })
+
         // Create event listener for 'save' button click.
         saveButton.addEventListener('click', ()=>{
             
@@ -100,37 +111,32 @@ function renderAlbums(album) {
 
             
             // Append the name and artist to 'Saved Albums', update button text, set album 'post' status to true, calls the saveAlbum function.
-            if (saveButton.textContent === "Save Album" ) {
+            if (saveButton.textContent === "Save Album") {
                 sidebar.appendChild(nameAndArtist)
                 saveButton.textContent = "Remove Album"
                 album.post = true;
-                saveAlbum();
-                
-                // Remove the name and artist from 'Saved Albums, update button text, set album 'post' status to false, calls the saveAlbum function.
+
+            // Remove the name and artist from 'Saved Albums, update button text, set album 'post' status to false, calls the saveAlbum function.
             } else if (saveButton.textContent === "Remove Album") {
                 let elementToRemove = document.querySelector(`#${album.name.replaceAll(' ','')}`);
                 elementToRemove.remove();
                 saveButton.textContent = "Save Album";
                 album.post = false
-                saveAlbum();
             }
-            
-            
-            // Initate 'fetch' request to PATCH updated album 'post' status.
-            function saveAlbum() {                    
-                    fetch('http://localhost:3000' + `/${genreCurrent}/${albumId}`, {
-                        method: 'PATCH',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({'post': album.post})
-                    })
-                    
-            };
+            saveAlbum(genreCurrent, albumId, album);
         })
     });
 };
 
-
-
+// Initate 'fetch' request to PATCH updated album 'post' status.
+function saveAlbum(genreCurrent, albumId, album) {                    
+        fetch('http://localhost:3000' + `/${genreCurrent}/${albumId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({'post': album.post})
+        })
+        
+};
 
