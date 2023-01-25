@@ -55,11 +55,36 @@ function renderAlbums(album) {
         // Create event listener to show tooltip when mouse hovers over thumbnail.
         albumImage.addEventListener("mouseover", () => {
             albumDesc.style.display = "block"
+
+            // NEW - NICK - animation
+            albumDesc.animate({
+            width: ['0px', '200px']
+                }, 200
+            );
+            function textAnimate(textElement){
+                textElement.animate({
+                    opacity: ['0', '0', '1'],
+                    offset: ['0', '0.5', '1']
+                }, 350)
+            }
+            [albumName, albumArtist, albumYear].forEach(textAnimate);
         });
 
         // Create event listener to hide tooltip when mouse leaves thumbnail.
         albumImage.addEventListener("mouseleave", () => {
-            albumDesc.style.display = "none";
+            // NEW - NICK - animation
+            albumDesc.animate({
+                width: ['200px', '0px']
+                    }, 100
+                ).finished.then(()=>{albumDesc.style.display = "none"}
+            );
+            function textAnimate(textElement){
+                textElement.animate({
+                    opacity: ['1', '0', '0'],
+                    offset: ['0', '0.1', '1']
+                }, 100)
+            }
+            [albumName, albumArtist, albumYear].forEach(textAnimate);
         });
 
     // Add image and tooltip to div and append it to album body.
