@@ -76,7 +76,11 @@ function renderAlbums(album) {
         const saveButton = document.createElement('button');
             saveButton.setAttribute("type","button");
             saveButton.setAttribute("name","button");
-            saveButton.textContent = 'Save Album';
+            if (album.post === true) {
+                saveButton.textContent = "Remove Album"
+            } else {
+                saveButton.textContent = 'Save Album';
+            };
 
         // Insert div beneath big image and within the div adds the 'save' button.
         const div = document.createElement('div');
@@ -94,14 +98,15 @@ function renderAlbums(album) {
             // Convert genre name to lowercase to be inserted into URL during fetch.
             genreCurrent = genreSelect.value.toLowerCase();
 
+            
             // Append the name and artist to 'Saved Albums', update button text, set album 'post' status to true, calls the saveAlbum function.
-            if (saveButton.textContent === "Save Album") {
+            if (saveButton.textContent === "Save Album" ) {
                 sidebar.appendChild(nameAndArtist)
                 saveButton.textContent = "Remove Album"
                 album.post = true;
                 saveAlbum();
-
-            // Remove the name and artist from 'Saved Albums, update button text, set album 'post' status to false, calls the saveAlbum function.
+                
+                // Remove the name and artist from 'Saved Albums, update button text, set album 'post' status to false, calls the saveAlbum function.
             } else if (saveButton.textContent === "Remove Album") {
                 let elementToRemove = document.querySelector(`#${album.name.replaceAll(' ','')}`);
                 elementToRemove.remove();
@@ -109,7 +114,8 @@ function renderAlbums(album) {
                 album.post = false
                 saveAlbum();
             }
-
+            
+            
             // Initate 'fetch' request to PATCH updated album 'post' status.
             function saveAlbum() {                    
                     fetch('http://localhost:3000' + `/${genreCurrent}/${albumId}`, {
