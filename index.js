@@ -158,7 +158,7 @@ function renderAlbums(album) {
     thumbDiv.appendChild(albumDesc);
     
     // Set the big image 'src' to be the corresponding album's cover art and append to DOM.
-    bigImage.src = album.image;
+
     // Grab album name from album object.
     const bigAlbumName = document.createElement('h3');
         bigAlbumName.textContent = album.name;
