@@ -59,7 +59,18 @@ function nameAndArtistEvent(nameAndArtist, album, saveButton) {
         const div = document.createElement('div');
         singleAlbums.innerHTML = '';
         bigImage.src = album.image;
-        singleAlbums.append(bigImage);
+        //singleAlbums.append(bigImage);
+        spotifySampler.src = album.sampleSrc;
+        // Grab album name from album object.
+        const bigAlbumName = document.createElement('h3');
+        bigAlbumName.textContent = album.name;
+        // Grab album artist from album object.    
+        const bigAlbumArtist = document.createElement('h4');
+        bigAlbumArtist.textContent = album.artist;
+        // Grab album year from album object.
+        const bigAlbumYear = document.createElement('h4');
+        bigAlbumYear.textContent = album.year;
+        singleAlbums.append(bigImage, bigAlbumName, bigAlbumArtist, bigAlbumYear);
         singleAlbums.appendChild(div);
         div.appendChild(saveButton);
     })
@@ -272,7 +283,8 @@ function saveAlbum(album, saveButton) {
                 name: album.name,
                 artist: album.artist,
                 image: album.image,
-                year: album.year
+                year: album.year,
+                sampleSrc: album.sampleSrc
             })
         })
             .then(response => response.json())
