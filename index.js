@@ -19,6 +19,7 @@ function renderSavedAlbum(album) {
     nameArtistGrab(album, button);
 };
 
+// Function to create a button.
 function makeButton(){
     const saveButton = document.createElement('button')
     saveButton.setAttribute("type","button");
@@ -26,6 +27,7 @@ function makeButton(){
     return saveButton;
 };
 
+// Function to grab name and artist from album object.
 function nameArtistGrab(album, saveButton) {
     const nameAndArtist = document.createElement('p');
         nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
@@ -140,7 +142,7 @@ function renderAlbums(album) {
         // Create event listener for 'save' button click.
         saveButton.addEventListener('click', ()=>{
             
-            // Convert genre name to lowercase to be inserted into URL during fetch.
+            /* // Convert genre name to lowercase to be inserted into URL during fetch.
             genreCurrent = genreSelect.value.toLowerCase();
 
             
@@ -156,21 +158,27 @@ function renderAlbums(album) {
                 elementToRemove.remove();
                 saveButton.textContent = "Save Album";
                 album.post = false
-            }
-            saveAlbum(genreCurrent, albumId, album);
+            } */
+            saveAlbum(album);
         })
     });
 };
 
-// Initate 'fetch' request to PATCH updated album 'post' status.
-function saveAlbum(genreCurrent, albumId, album) {                    
-        fetch('http://localhost:3000' + `/${genreCurrent}/${albumId}`, {
-            method: 'PATCH',
+// Initate 'fetch' request to POST album to 'Saved'.
+function saveAlbum(album) {                    
+        fetch("http://localhost:3000/saved", {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({'post': album.post})
+            body: JSON.stringify({
+                name: album.name,
+                artist: album.artist,
+                image: album.image,
+                year: album.year
+            })
         })
-        
+            .then(response => response.json())
+            .then(data => renderSavedAlbum(data));
 };
 
