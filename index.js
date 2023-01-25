@@ -15,24 +15,42 @@ fetch("http://localhost:3000/saved")
 
 // Function to grab name and artist from album object.
 function renderSavedAlbum(album) {
-    let button = makeButton();
+    let button = makeButton(album);
     nameArtistGrab(album, button);
 };
 
 // Function to create a button.
-function makeButton(){
+function makeButton(album){
     const saveButton = document.createElement('button')
-    saveButton.setAttribute("type","button");
-    saveButton.setAttribute("name","button");
+        //saveButton.setAttribute("type","button");
+        //saveButton.setAttribute("name","button");
+        saveButton.textContent = "Save Album";
+        saveButton.addEventListener('click', ()=>{
+            if (saveButton.textContent === "Save Album") {
+                saveAlbum(album, saveButton);
+                //saveButton.textContent = "Remove Album";
+            } else if (saveButton.textContent === "Remove Album") {
+                let albumId = saveButton.id.split('_')[1];
+                console.log("This album's ID is " + albumId);
+                removeAlbum(albumId);
+                let elementToRemove = document.querySelector(`p#album_${albumId}`);
+                elementToRemove.remove();
+                saveButton.textContent = "Save Album";
+                saveButton.id = "";
+            }
+        })
     return saveButton;
 };
 
 // Function to grab name and artist from album object.
 function nameArtistGrab(album, saveButton) {
     const nameAndArtist = document.createElement('p');
-        nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
+        //nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
+        nameAndArtist.setAttribute('id', `album_${album.id}`);
         nameAndArtist.textContent = `"${album.name}" by ${album.artist}`;
         sidebar.appendChild(nameAndArtist);
+        saveButton.textContent = "Remove Album";
+        saveButton.setAttribute('id', `album_${album.id}`);
         nameAndArtist.addEventListener('click', ()=>{
             const div = document.createElement('div');
             singleAlbums.innerHTML = '';
@@ -40,7 +58,8 @@ function nameArtistGrab(album, saveButton) {
             singleAlbums.append(bigImage);
             singleAlbums.appendChild(div);
             div.appendChild(saveButton);
-            saveButton.textContent = 'Remove Album';
+            //saveButton.setAttribute('id', `album_${album.id}`);
+            //saveButton.textContent = 'Remove Album';
         })
 }
 
@@ -72,7 +91,7 @@ function renderAlbums(album) {
         albumYear.textContent = album.year;
 
     // Grab album id from album object.
-    const albumId = album.id 
+    //const albumId = album.id 
 
     // Create div for each album thumbnail
     const thumbDiv = document.createElement("div");
@@ -108,7 +127,7 @@ function renderAlbums(album) {
         bigImage.src = album.image;
         singleAlbums.append(bigImage);
 
-        // Defining button to be appended later.
+        /* // Defining button to be appended later.
         const saveButton = document.createElement('button');
             saveButton.setAttribute("type","button");
             saveButton.setAttribute("name","button");
@@ -116,8 +135,10 @@ function renderAlbums(album) {
                 saveButton.textContent = "Remove Album"
             } else {
                 saveButton.textContent = 'Save Album';
-            };
-
+            }; */
+        let saveButton = makeButton(album);
+        saveButton.textContent = "Save Album";
+        saveButton.id = "";
 
         // Insert div beneath big image and within the div adds the 'save' button.
         const div = document.createElement('div');
@@ -140,7 +161,15 @@ function renderAlbums(album) {
         })
 
         // Create event listener for 'save' button click.
-        saveButton.addEventListener('click', ()=>{
+        /* saveButton.addEventListener('click', ()=>{
+            if (saveButton.textContent === "Save Album") {
+                saveAlbum(album);
+                saveButton.textContent = "Remove Album";
+            } else if (saveButton.textContent === "Remove Album") {
+                let albumId = saveButton.id.split('_')[1];
+                console.log(banana);
+                removeAlbum(albumId);
+            } */
             
             /* // Convert genre name to lowercase to be inserted into URL during fetch.
             genreCurrent = genreSelect.value.toLowerCase();
@@ -159,13 +188,14 @@ function renderAlbums(album) {
                 saveButton.textContent = "Save Album";
                 album.post = false
             } */
-            saveAlbum(album);
-        })
+            //saveAlbum(album);
+
+        //})
     });
 };
 
 // Initate 'fetch' request to POST album to 'Saved'.
-function saveAlbum(album) {                    
+function saveAlbum(album, saveButton) {                    
         fetch("http://localhost:3000/saved", {
             method: 'POST',
             headers: {
@@ -179,6 +209,17 @@ function saveAlbum(album) {
             })
         })
             .then(response => response.json())
-            .then(data => renderSavedAlbum(data));
+            //.then(albumData => renderSavedAlbum(albumData));
+            .then(albumData => {
+                renderSavedAlbum(albumData);
+                saveButton.textContent = "Remove Album";
+                saveButton.id = `album_${albumData.id}`;
+            });
 };
 
+function removeAlbum(albumId) {
+    //console.log("http://localhost:3000/saved/" + albumId);
+    fetch("http://localhost:3000/saved/" + albumId, {
+        method: 'DELETE'
+    })
+};
