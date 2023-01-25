@@ -74,7 +74,14 @@ function renderAlbums(album) {
 
         // Defining button to be appended later.
         const saveButton = document.createElement('button');
-            saveButton.textContent = 'Save Album';
+            saveButton.setAttribute("type","button");
+            saveButton.setAttribute("name","button");
+            if (album.post === true) {
+                saveButton.textContent = "Remove Album"
+            } else {
+                saveButton.textContent = 'Save Album';
+            };
+
 
         // Insert div beneath big image and within the div adds the 'save' button.
         const div = document.createElement('div');
@@ -102,6 +109,7 @@ function renderAlbums(album) {
             // Convert genre name to lowercase to be inserted into URL during fetch.
             genreCurrent = genreSelect.value.toLowerCase();
 
+            
             // Append the name and artist to 'Saved Albums', update button text, set album 'post' status to true, calls the saveAlbum function.
             if (saveButton.textContent === "Save Album") {
                 sidebar.appendChild(nameAndArtist)
