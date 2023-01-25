@@ -421,5 +421,23 @@
       "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/6OyKBwLzq4h15XmxeWf5n4"
     }
+  ],
+  "saved": [
+    {
+      "id": 1,
+      "name": "Punk in Drublic",
+      "artist": "NOFX",
+      "image": "https://upload.wikimedia.org/wikipedia/en/1/19/NOFX_-_Punk_in_Drublic_cover.jpg",
+      "year": 1994,
+      "post": false
+    },
+    {
+      "id": 5,
+      "name": "Tell All Your Friends",
+      "artist": "Taking Back Sunday",
+      "image": "https://upload.wikimedia.org/wikipedia/en/e/ef/Tellallyourfriends.jpg",
+      "year": 2002,
+      "post": false
+    }
   ]
 }
