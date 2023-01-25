@@ -24,9 +24,9 @@ function renderAlbums(album) {
         albumImage.src = album.image;
 
     // Grab album name from album object.
-    const albumName = document.createElement('h3');
-        albumName.textContent = album.name;
-     
+        const albumName = document.createElement('h3');
+            albumName.textContent = album.name;
+        
     // Grab album artist from album object.    
     const albumArtist = document.createElement('h4');
         albumArtist.textContent = album.artist;
@@ -61,16 +61,32 @@ function renderAlbums(album) {
     albumBody.append(thumbDiv);
     thumbDiv.appendChild(albumImage);
     thumbDiv.appendChild(albumDesc);
+    
+    // Set the big image 'src' to be the corresponding album's cover art and append to DOM.
+    bigImage.src = album.image;
+    // Grab album name from album object.
+    const bigAlbumName = document.createElement('h3');
+        bigAlbumName.textContent = album.name;
+    
+    // Grab album artist from album object.    
+    const bigAlbumArtist = document.createElement('h4');
+    bigAlbumArtist.textContent = album.artist;
 
+    // Grab album year from album object.
+    const bigAlbumYear = document.createElement('h4');
+    bigAlbumYear.textContent = album.year;
+
+    function mainAppend() {
+        singleAlbums.append(bigImage, bigAlbumName, bigAlbumArtist, bigAlbumYear);
+    }
+    
     // Create event listener for each album thumbnail.
     albumImage.addEventListener('click', ()=> {
 
         // Clear out whatever is currently in the album viewing area.
         singleAlbums.innerHTML = '';
-        
-        // Set the big image 'src' to be the corresponding album's cover art and append to DOM.
         bigImage.src = album.image;
-        singleAlbums.append(bigImage);
+        mainAppend();
 
         // Defining button to be appended later.
         const saveButton = document.createElement('button');
@@ -97,7 +113,7 @@ function renderAlbums(album) {
         nameAndArtist.addEventListener('click', (e)=>{
             singleAlbums.innerHTML = '';
             bigImage.src = album.image;
-            singleAlbums.append(bigImage);
+            mainAppend();
             singleAlbums.appendChild(div);
             div.appendChild(saveButton);
             saveButton.textContent = 'Remove Album';
