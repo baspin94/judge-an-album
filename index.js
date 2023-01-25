@@ -8,18 +8,18 @@ const singleAlbums = document.querySelector('#singleAlbums');
 const bigImage = document.createElement('img');
     bigImage.setAttribute('id','bigImage');
 
-// Fetch and render 'Saved' albums on page load.
+// NEW - Bianca - Fetch and render 'Saved' albums on page load.
 fetch("http://localhost:3000/saved")
     .then(res => res.json())
     .then(data => data.forEach(album => renderSavedAlbum(album)));
 
-// Function to grab name and artist from album object.
+// NEW - Bianca - Function to grab name and artist from album object.
 function renderSavedAlbum(album) {
     let button = makeButton(album);
     nameArtistGrab(album, button);
 };
 
-// Function to create a button.
+// NEW - Bianca - Function to create a button.
 function makeButton(album){
     const saveButton = document.createElement('button')
         //saveButton.setAttribute("type","button");
@@ -42,7 +42,7 @@ function makeButton(album){
     return saveButton;
 };
 
-// Function to grab name and artist from album object.
+// NEW - Bianca - Function to grab name and artist from album object.
 function nameArtistGrab(album, saveButton) {
     const nameAndArtist = document.createElement('p');
         //nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
@@ -90,6 +90,7 @@ function renderAlbums(album) {
     const albumYear = document.createElement('h4');
         albumYear.textContent = album.year;
 
+    // NEW - Bianca - Removed this.
     // Grab album id from album object.
     //const albumId = album.id 
 
@@ -127,6 +128,7 @@ function renderAlbums(album) {
         bigImage.src = album.image;
         singleAlbums.append(bigImage);
 
+        // NEW - Bianca - Removed and replaced with 'Save Button'
         /* // Defining button to be appended later.
         const saveButton = document.createElement('button');
             saveButton.setAttribute("type","button");
@@ -160,6 +162,7 @@ function renderAlbums(album) {
             saveButton.textContent = 'Remove Album';
         })
 
+        // NEW - Bianca - Removed and Added to makeButton function.
         // Create event listener for 'save' button click.
         /* saveButton.addEventListener('click', ()=>{
             if (saveButton.textContent === "Save Album") {
@@ -194,7 +197,7 @@ function renderAlbums(album) {
     });
 };
 
-// Initate 'fetch' request to POST album to 'Saved'.
+// NEW - Bianca - Initate 'fetch' request to POST album to 'Saved'.
 function saveAlbum(album, saveButton) {                    
         fetch("http://localhost:3000/saved", {
             method: 'POST',
@@ -217,6 +220,7 @@ function saveAlbum(album, saveButton) {
             });
 };
 
+// NEW - Bianca - Initiate 'fetch' request to DELETE album from 'Saved'.
 function removeAlbum(albumId) {
     //console.log("http://localhost:3000/saved/" + albumId);
     fetch("http://localhost:3000/saved/" + albumId, {
