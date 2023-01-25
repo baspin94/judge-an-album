@@ -4,6 +4,8 @@ const albumBody = document.querySelector('#albumBody');
 const sidebar = document.querySelector('#sidebar');
 const genreSelect = document.querySelector('#genre-list');
 const singleAlbums = document.querySelector('#singleAlbums');
+// NEW - NICK - define variable for song sample functionality
+const spotifySampler = document.querySelector('iframe');
 
 const bigImage = document.createElement('img');
     bigImage.setAttribute('id','bigImage');
@@ -37,6 +39,9 @@ function renderAlbums(album) {
 
     // Grab album id from album object.
     const albumId = album.id 
+
+    // NEW - NICK - Grab song sample src from album object.
+    const albumSample = album.sampleSrc;
 
     // Create div for each album thumbnail
     const thumbDiv = document.createElement("div");
@@ -88,6 +93,9 @@ function renderAlbums(album) {
         singleAlbums.appendChild(div);
         div.appendChild(saveButton);
 
+        // NEW - NICK - add src to the song sample functionality
+        spotifySampler.src = albumSample;
+
         // Create paragraph for name and artist to appear in 'Saved Albums'
         const nameAndArtist = document.createElement('p');
         nameAndArtist.setAttribute('id',album.name.replaceAll(' ',''));
@@ -100,6 +108,7 @@ function renderAlbums(album) {
             singleAlbums.append(bigImage);
             singleAlbums.appendChild(div);
             div.appendChild(saveButton);
+            spotifySampler.src = albumSample;
             saveButton.textContent = 'Remove Album';
         })
 
