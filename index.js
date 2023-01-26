@@ -244,8 +244,7 @@ function saveAlbum(album, saveButton) {
             .then(response => response.json())
             .then(albumData => {
                 renderSavedAlbum(albumData);
-                saveButton.textContent = "Remove Album";
-                saveButton.id = `album_${albumData.id}`;
+                setBtnToRemove(saveButton, album);
             });
 };
 
