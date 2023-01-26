@@ -4,6 +4,7 @@ const albumBody = document.querySelector('#albumBody');
 const sidebar = document.querySelector('#sidebar');
 const genreSelect = document.querySelector('#genre-list');
 const singleAlbums = document.querySelector('#singleAlbums');
+const singleAlbumsContainer = document.querySelector('#singleAlbumsContainer')
 // NEW - NICK - define variable for song sample functionality
 const spotifySampler = document.querySelector('iframe');
 
@@ -58,6 +59,7 @@ function nameAndArtistEvent(nameAndArtist, album, saveButton) {
     nameAndArtist.addEventListener('click', ()=>{
         const div = document.createElement('div');
         singleAlbums.innerHTML = '';
+        singleAlbumsContainer.style.display = "block"
         bigImage.src = album.image;
         //singleAlbums.append(bigImage);
         spotifySampler.src = album.sampleSrc;
@@ -191,7 +193,7 @@ function renderAlbums(album) {
 
         // Clear out whatever is currently in the album viewing area.
         singleAlbums.innerHTML = '';
-        singleAlbums.style.display = "block"
+        singleAlbumsContainer.style.display = "block"
         bigImage.src = album.image;
         mainAppend();
 
