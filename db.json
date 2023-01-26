@@ -424,20 +424,28 @@
   ],
   "saved": [
     {
-      "name": "Aquemini",
-      "artist": "Outkast",
-      "image": "https://upload.wikimedia.org/wikipedia/en/2/2c/AqueminiOutKast.jpg",
-      "year": "1999",
-      "sampleSrc": "https://open.spotify.com/embed/track/0shK5iZQppbHPQYiy60xs9?si=7d0a963dde1544ca",
-      "id": 2
-    },
-    {
       "name": "American Football",
       "artist": "American Football",
       "image": "https://upload.wikimedia.org/wikipedia/en/e/e6/American_football_band_lp_cover.png",
       "year": 1999,
       "sampleSrc": "https://open.spotify.com/embed/track/6kZqCqD1r08sJAQ1TjuEpM?si=84975dc4f7884788",
       "id": 3
+    },
+    {
+      "name": "Nerds By Nature",
+      "artist": "Pegboard Nerds",
+      "image": "https://upload.wikimedia.org/wikipedia/en/2/27/Pegboard_Nerds_Nerds_by_Nature_EP_Cover.jpeg",
+      "year": "2017",
+      "sampleSrc": "https://open.spotify.com/embed/track/0cq2p8SLy0bPVcPASci6og?si=e6f5378f47074145",
+      "id": 4
+    },
+    {
+      "name": "Discovery",
+      "artist": "Daft Punk",
+      "image": "https://upload.wikimedia.org/wikipedia/en/2/27/Daft_Punk_-_Discovery.png",
+      "year": "2001",
+      "sampleSrc": "https://open.spotify.com/embed/track/0DiWol3AO6WpXZgp0goxAV?si=ad52da25e7e245cc",
+      "id": 5
     }
   ]
 }

@@ -102,17 +102,21 @@ function renderAlbums(album) {
     const albumImage = document.createElement('img');
         albumImage.src = album.image;
 
-    // Grab album name from album object.
+        // // Grab album name from album object.
         const albumName = document.createElement('h3');
-            albumName.textContent = album.name;
-        
-    // Grab album artist from album object.    
-    const albumArtist = document.createElement('h4');
+        albumName.textContent = album.name;
+
+        // // Grab album artist from album object.    
+        const albumArtist = document.createElement('h4');
         albumArtist.textContent = album.artist;
-    
-    // Grab album year from album object.
-    const albumYear = document.createElement('h4');
+
+        // // Grab album year from album object.
+        const albumYear = document.createElement('h4');
         albumYear.textContent = album.year;
+
+    // NEW ARI: Put all info into one paragraph
+        const albumMouse = document.createElement('p');
+        albumMouse.textContent = `${album.artist} (${album.year})`
 
     // NEW - Bianca - Removed this.
     // Grab album id from album object.
@@ -128,7 +132,7 @@ function renderAlbums(album) {
     // Create tooltip for each album thumbnail.
     const albumDesc = document.createElement("div");
         albumDesc.setAttribute("class", "tooltip");
-        albumDesc.append(albumName, albumArtist, albumYear);
+        albumDesc.append(albumName, albumMouse);
 
         // Create event listener to show tooltip when mouse hovers over thumbnail.
         albumImage.addEventListener("mouseover", () => {
