@@ -26,7 +26,7 @@ function renderSavedAlbum(album) {
 function makeButton(album){
     const saveButton = document.createElement('button')
         saveButtonEvent(album, saveButton);
-        saveButton.textContent = 'Save Album';
+        setBtnToSave(saveButton);
     return saveButton;
 };
 
