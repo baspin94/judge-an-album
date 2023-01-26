@@ -145,3 +145,20 @@ footer {
     background-color: rgb(195, 166, 215);
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+#sidebar p {
+    background: rgb(255, 193, 78);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#sidebar p:hover {
+    background: rgb(209, 159, 65);
+    cursor: pointer;
+}
+
+#sidebar p:active{
+    background: rgb(255, 225, 169);
+    cursor: pointer;
+}
