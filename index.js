@@ -137,19 +137,11 @@ function renderAlbumThumbnails(album) {
     const albumImage = document.createElement('img');
         albumImage.src = album.image;
 
-        // // Grab album name from album object.
+    // Grab album name from album object.
     let albumName = getAlbumName(album);
 
-        // // Grab album artist from album object.    
-        const albumArtist = document.createElement('h4');
-        albumArtist.textContent = album.artist;
-
-        // // Grab album year from album object.
-        const albumYear = document.createElement('h4');
-        albumYear.textContent = album.year;
-
     // NEW ARI: Put all info into one paragraph
-        const albumMouse = document.createElement('p');
+    const albumMouse = document.createElement('p');
         albumMouse.textContent = `${album.artist} (${album.year})`
 
     // Create div for each album thumbnail
