@@ -86,23 +86,19 @@ function nameArtistGrab(album) {
         })
     })
     starRating.value = album.rating
-
     return nameAndArtist;
 }
 
 // Add event listener for Saved Albums.
 function nameAndArtistEvent(nameAndArtist, album, saveButton) {
     nameAndArtist.addEventListener('click', ()=>{
-        /* const div = document.createElement('div');
-        singleAlbums.innerHTML = '';
-        singleAlbumsContainer.style.display = "block" */
         buildBigAlbum(album, saveButton);
     })
 };
 
 // Renders albums in the album viewing section of the page.
 function buildBigAlbum(album, saveButton) {
-    const div = document.createElement('div');
+    const buttonDiv = document.createElement('div');
     singleAlbums.innerHTML = '';
     singleAlbumsContainer.style.display = "block"
     bigImage.src = album.image;
@@ -117,8 +113,8 @@ function buildBigAlbum(album, saveButton) {
     const bigAlbumYear = document.createElement('h4');
     bigAlbumYear.textContent = album.year;
     singleAlbums.append(bigImage, bigAlbumName, bigAlbumArtist, bigAlbumYear);
-    singleAlbums.appendChild(div);
-    div.appendChild(saveButton);
+    singleAlbums.appendChild(buttonDiv);
+    buttonDiv.appendChild(saveButton);
 }
 
 // Fetch and render album thumbnails when new genre is selected from the dropdown.
@@ -127,11 +123,11 @@ genreSelect.addEventListener('change', (e) => {
         const genre = e.target.value.toLowerCase();
         fetch('http://localhost:3000' + `/${genre}`)
         .then(res=>res.json())
-        .then(data=> data.forEach(renderAlbums));
+        .then(data=> data.forEach(renderAlbumThumbnails));
     });
 
 // Add eventlistener to drop down to populate the albums
-function renderAlbums(album) {
+function renderAlbumThumbnails(album) {
 
     // Grab album image from album object.
     const albumImage = document.createElement('img');
@@ -152,9 +148,6 @@ function renderAlbums(album) {
     // NEW ARI: Put all info into one paragraph
         const albumMouse = document.createElement('p');
         albumMouse.textContent = `${album.artist} (${album.year})`
-
-    // Grab song sample src from album object.
-    // const albumSample = album.sampleSrc;
 
     // Create div for each album thumbnail
     const thumbDiv = document.createElement("div");
@@ -207,19 +200,13 @@ function renderAlbums(album) {
     
     // Create event listener for each album thumbnail.
     albumImage.addEventListener('click', ()=> {
-
-        // Clear out whatever is currently in the album viewing area.
         let saveButton = makeButton(album);
-        /* const div = document.createElement('div');
-        singleAlbums.innerHTML = '';
-        singleAlbumsContainer.style.display = "block" */
         buildBigAlbum(album, saveButton);
 
         // NEW - NICK - make save button be a functional remove button if the album was already saved
         fetch('http://localhost:3000/saved/')
         .then(res => res.json())
         .then(savedAlbumData => savedAlbumData.some(savedAlbum => checkIfSaved(savedAlbum, album, saveButton)));
-        
     });
 };
 
