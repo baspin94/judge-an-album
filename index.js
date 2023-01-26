@@ -65,9 +65,8 @@ function nameArtistGrab(album) {
         nameAndArtist.textContent = `"${album.name}" by ${album.artist} `;
         sidebar.appendChild(nameAndArtist);
 
-    //NEW - NICK - Star rating system
+    // Star rating system
     const starRating = document.createElement('select');
-    // starRating = setAttribute('id', 'stars');
     function populateStarOptions (){
         for (let i=1; i<6; i++){
             let starRatingOption = document.createElement('option');
@@ -154,7 +153,7 @@ function renderAlbumThumbnails(album) {
     // Grab album name from album object.
     let albumName = getAlbumName(album);
 
-    // NEW ARI: Put all info into one paragraph
+    // Put all info into one paragraph
     const albumMouse = document.createElement('p');
         albumMouse.textContent = `${album.artist} (${album.year})`
 
@@ -171,7 +170,7 @@ function renderAlbumThumbnails(album) {
     albumImage.addEventListener('mouseover', () => {
         albumDesc.style.display = 'block'
 
-        // NEW - NICK - animation
+        // animation
         albumDesc.animate({
         width: ['0px', '200px']
             }, 200
@@ -187,7 +186,7 @@ function renderAlbumThumbnails(album) {
 
     // Create event listener to hide tooltip when mouse leaves thumbnail.
     albumImage.addEventListener('mouseleave', () => {
-        // NEW - NICK - animation
+        // animation
         albumDesc.animate({
             width: ['200px', '0px']
                 }, 100
@@ -212,7 +211,7 @@ function renderAlbumThumbnails(album) {
         let saveButton = makeButton(album);
         buildBigAlbum(album, saveButton);
 
-        // NEW - NICK - make save button be a functional remove button if the album was already saved
+        // make save button be a functional remove button if the album was already saved
         fetch('http://localhost:3000/saved/')
         .then(res => res.json())
         .then(savedAlbumData => savedAlbumData.some(savedAlbum => checkIfSaved(savedAlbum, album, saveButton)));
