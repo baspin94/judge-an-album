@@ -180,3 +180,8 @@ button:active {
     cursor: pointer;
     transform: scale(.95);
 }
+
+#sidebar p select {
+    background-color:rgb(179 220 176);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

@@ -68,6 +68,7 @@ function nameArtistGrab(album) {
 
     //NEW - NICK - Star rating system
     const starRating = document.createElement('select');
+    // starRating = setAttribute('id', 'stars');
     function populateStarOptions (){
         for (let i=1; i<6; i++){
             let starRatingOption = document.createElement('option');
