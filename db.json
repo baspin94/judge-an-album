@@ -147,7 +147,7 @@
       "artist": "Daft Punk",
       "image": "https://upload.wikimedia.org/wikipedia/en/2/27/Daft_Punk_-_Discovery.png",
       "year": "2001",
-      "post": false,
+      "post": true,
       "sampleSrc": "https://open.spotify.com/embed/track/0DiWol3AO6WpXZgp0goxAV?si=ad52da25e7e245cc"
     },
     {
@@ -156,7 +156,7 @@
       "artist": "Calvin Harris",
       "image": "https://upload.wikimedia.org/wikipedia/en/0/07/Calvin_Harris_-_Feel_So_Close.png",
       "year": "2011",
-      "post": false,
+      "post": true,
       "sampleSrc": "https://open.spotify.com/embed/track/1gihuPhrLraKYrJMAEONyc?si=87cf085a7c3447b6"
     },
     {
