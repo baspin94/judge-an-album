@@ -96,6 +96,12 @@ function nameAndArtistEvent(nameAndArtist, album, saveButton) {
     })
 };
 
+function getAlbumName(album){
+    const albumName = document.createElement('h3');
+    albumName.textContent = album.name;
+    return albumName;
+};
+
 // Renders albums in the album viewing section of the page.
 function buildBigAlbum(album, saveButton) {
     const buttonDiv = document.createElement('div');
@@ -103,16 +109,14 @@ function buildBigAlbum(album, saveButton) {
     singleAlbumsContainer.style.display = "block"
     bigImage.src = album.image;
     spotifySampler.src = album.sampleSrc;
-    // Grab album name from album object.
-    const bigAlbumName = document.createElement('h3');
-    bigAlbumName.textContent = album.name;
+    let albumName = getAlbumName(album);
     // Grab album artist from album object.    
     const bigAlbumArtist = document.createElement('h4');
     bigAlbumArtist.textContent = album.artist;
     // Grab album year from album object.
     const bigAlbumYear = document.createElement('h4');
     bigAlbumYear.textContent = album.year;
-    singleAlbums.append(bigImage, bigAlbumName, bigAlbumArtist, bigAlbumYear);
+    singleAlbums.append(bigImage, albumName, bigAlbumArtist, bigAlbumYear);
     singleAlbums.appendChild(buttonDiv);
     buttonDiv.appendChild(saveButton);
 }
@@ -134,8 +138,7 @@ function renderAlbumThumbnails(album) {
         albumImage.src = album.image;
 
         // // Grab album name from album object.
-        const albumName = document.createElement('h3');
-        albumName.textContent = album.name;
+    let albumName = getAlbumName(album);
 
         // // Grab album artist from album object.    
         const albumArtist = document.createElement('h4');
