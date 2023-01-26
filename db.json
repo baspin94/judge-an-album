@@ -100,7 +100,7 @@
       "artist": "Missy Elliot",
       "image": "https://upload.wikimedia.org/wikipedia/en/9/93/Under_Construction_Cover.jpg",
       "year": "2002",
-      "post": false,
+      "post": true,
       "sampleSrc": "https://open.spotify.com/embed/track/3jagJCUbdqhDSPuxP8cAqF?si=070c77f8b3b44b16"
     },
     {
@@ -147,7 +147,7 @@
       "artist": "Daft Punk",
       "image": "https://upload.wikimedia.org/wikipedia/en/2/27/Daft_Punk_-_Discovery.png",
       "year": "2001",
-      "post": true,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/0DiWol3AO6WpXZgp0goxAV?si=ad52da25e7e245cc"
     },
     {
@@ -156,7 +156,7 @@
       "artist": "Calvin Harris",
       "image": "https://upload.wikimedia.org/wikipedia/en/0/07/Calvin_Harris_-_Feel_So_Close.png",
       "year": "2011",
-      "post": true,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/1gihuPhrLraKYrJMAEONyc?si=87cf085a7c3447b6"
     },
     {
@@ -165,7 +165,7 @@
       "artist": "Pegboard Nerds",
       "image": "https://upload.wikimedia.org/wikipedia/en/2/27/Pegboard_Nerds_Nerds_by_Nature_EP_Cover.jpeg",
       "year": "2017",
-      "post": true,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/0cq2p8SLy0bPVcPASci6og?si=e6f5378f47074145"
     },
     {
@@ -174,7 +174,7 @@
       "artist": "Avicii",
       "image": "https://upload.wikimedia.org/wikipedia/en/e/e5/Avicii_-_True_%28Album%29.png",
       "year": "2013",
-      "post": true,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/0nrRP2bk19rLc0orkWPQk2?si=95ebbc552af24d56"
     },
     {
@@ -288,7 +288,7 @@
       "artist": "Vulfpeck",
       "image": "https://i.ytimg.com/vi/wJIFJ-L-Lw8/maxresdefault.jpg",
       "year": 2015,
-      "post": false,
+      "post": true,
       "sampleSrc": "https://open.spotify.com/embed/track/1DrlLvlYd1FIjNavRm6NdX?si=9ce4188825bd44bd"
     },
     {
@@ -324,7 +324,7 @@
       "artist": "Love the System",
       "image": "https://i.scdn.co/image/ab67616d00001e024b392f111c470848f620b9c8",
       "year": 2022,
-      "post": false,
+      "post": true,
       "sampleSrc": "https://open.spotify.com/embed/track/1Avb92mPm7EqqVH1IaXNmi?si=3831dceeefc242e8"
     }
   ],
@@ -422,5 +422,22 @@
       "sampleSrc": "https://open.spotify.com/embed/track/6OyKBwLzq4h15XmxeWf5n4"
     }
   ],
-  "saved": []
+  "saved": [
+    {
+      "name": "American Football",
+      "artist": "American Football",
+      "image": "https://upload.wikimedia.org/wikipedia/en/e/e6/American_football_band_lp_cover.png",
+      "year": 1999,
+      "sampleSrc": "https://open.spotify.com/embed/track/6kZqCqD1r08sJAQ1TjuEpM?si=84975dc4f7884788",
+      "id": 1
+    },
+    {
+      "name": "Aquemini",
+      "artist": "Outkast",
+      "image": "https://upload.wikimedia.org/wikipedia/en/2/2c/AqueminiOutKast.jpg",
+      "year": "1999",
+      "sampleSrc": "https://open.spotify.com/embed/track/0shK5iZQppbHPQYiy60xs9?si=7d0a963dde1544ca",
+      "id": 2
+    }
+  ]
 }
