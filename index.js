@@ -176,7 +176,7 @@ function renderAlbums(album) {
                 offset: ['0', '0.5', '1']
             }, 350)
         }
-        [albumName, albumArtist, albumYear].forEach(textAnimate);
+        [albumName, albumMouse].forEach(textAnimate);
     });
 
     // Create event listener to hide tooltip when mouse leaves thumbnail.
@@ -193,7 +193,7 @@ function renderAlbums(album) {
                 offset: ['0', '0.1', '1']
             }, 100)
         }
-        [albumName, albumArtist, albumYear].forEach(textAnimate);
+        [albumName, albumMouse].forEach(textAnimate);
     });
 
     // Add image and tooltip to div and append it to album body.
