@@ -26,7 +26,6 @@ function renderSavedAlbum(album) {
 // NEW - Bianca - Function to create a button.
 function makeButton(album){
     const saveButton = document.createElement('button')
-        saveButton.textContent = "Save Album";
         saveButtonEvent(album, saveButton);
     return saveButton;
 };
@@ -205,8 +204,22 @@ function renderAlbums(album) {
                 saveButton.textContent = 'Save Album';
             }; */
         let saveButton = makeButton(album);
-        saveButton.textContent = "Save Album";
-        saveButton.id = "";
+
+        // NEW - NICK - make save button be a functional remove button if the album was already saved
+        fetch('http://localhost:3000/saved/')
+        .then(res=>res.json())
+        .then(data=> data.some(checkIfSaved));
+
+        function checkIfSaved(savedAlbum){
+            if ((savedAlbum.name === albumName.textContent) && (savedAlbum.artist === albumArtist.textContent)) {
+                saveButton.textContent = "Remove Album";
+                saveButton.id = `album_${savedAlbum.id}`;
+                return true;
+            } else {
+                saveButton.textContent = "Save Album";
+                saveButton.id = "";
+            }
+        }
 
         // Insert div beneath big image and within the div adds the 'save' button.
         const div = document.createElement('div');
