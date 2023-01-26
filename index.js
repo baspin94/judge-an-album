@@ -63,9 +63,30 @@ function setBtnToRemove(saveButton, album) {
 function nameArtistGrab(album) {
     const nameAndArtist = document.createElement('p');
         nameAndArtist.setAttribute('id', `album_${album.id}`);
-        nameAndArtist.textContent = `"${album.name}" by ${album.artist}`;
+        nameAndArtist.textContent = `"${album.name}" by ${album.artist} `;
         sidebar.appendChild(nameAndArtist);
-        return nameAndArtist;
+
+    //NEW - NICK - Star rating system
+    const starRating = document.createElement('select');
+    function populateStarOptions (){
+        for (let i=1; i<6; i++){
+            let starRatingOption = document.createElement('option');
+            starRatingOption.textContent = i+" Stars";
+            starRating.appendChild(starRatingOption)
+        }
+    }
+    populateStarOptions();
+    nameAndArtist.appendChild(starRating)
+    starRating.addEventListener('change', (e)=>{
+        fetch("http://localhost:3000/saved/"+`${album.id}`, {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({rating: e.target.value})
+        })
+    })
+    starRating.value = album.rating
+
+    return nameAndArtist;
 }
 
 // Add event listener for Saved Albums.
