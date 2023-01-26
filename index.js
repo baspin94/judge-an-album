@@ -243,13 +243,12 @@ function removeAlbum(albumId) {
     })
 };
 
+// Check if an album is already in 'Saved Albums' before rendering.
 function checkIfSaved(savedAlbum, album, saveButton){
     if ((savedAlbum.name === album.name) && (savedAlbum.artist === album.artist)) {
-        saveButton.textContent = "Remove Album";
-        saveButton.id = `album_${savedAlbum.id}`;
+        setBtnToRemove(saveButton, album);
         return true;
     } else {
-        saveButton.textContent = "Save Album";
-        saveButton.id = "";
+        setBtnToSave(saveButton);
     }
 }
