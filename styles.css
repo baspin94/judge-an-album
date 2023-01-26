@@ -1,5 +1,5 @@
 html {
-    width: 1000px;
+    width: 1200px;
     border: 5px solid black;
     /* border: 10px solid white; */
     margin: auto;
@@ -9,28 +9,35 @@ html {
 body {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin: auto;
-    width: 1000px;
+    width: 1200px;
     height: 1000px;
 }
 
 header {
     background: rgb(255, 193, 78);
     float: top;
-    width: 940px;
-    padding: 10px;
+    width: 1145px;
+    padding: 5px;
     padding-right: 50px;
     margin: auto;
-    text-align: right;
+    border-right: 5px solid black;
     border-bottom: 5px solid black;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size:larger
 }
+
+#title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size:2.5em;
+    text-align: right;
+    position:relative;
+    right:125px
+}
+
 
 footer {
     background: rgb(255, 152, 169);
     text-align: center;
     margin: auto;
-    width: 1000px;
+    width: 1200px;
     height: 25px;
     padding-top: 10px;
     float: right;
@@ -41,7 +48,7 @@ footer {
     float: left;
     position: relative;
     left: 0px;
-    width: 230px;
+    width: 270px;
     padding: 10px;
     background-color: lightgreen;
     border: 20px;
@@ -56,7 +63,7 @@ footer {
     padding: 10px;
     padding-left: 50px;
     background: lightblue;
-    width: 685px;
+    width: 845px;
     border: 20px;
     height: 100%;
 }
@@ -141,7 +148,35 @@ footer {
 }
 
 
-#saveButton {
+button {
     background-color: rgb(195, 166, 215);
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:  rgb(174, 127, 203);
+}
+
+button:active {
+    transform: scale(.90);
+}
+
+#sidebar p {
+    background: rgb(255, 193, 78);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#sidebar p:hover {
+    background: rgb(209, 159, 65);
+    cursor: pointer;
+}
+
+#sidebar p:active{
+    background: rgb(255, 225, 169);
+    cursor: pointer;
+    transform: scale(.95);
 }
