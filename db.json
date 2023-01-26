@@ -422,5 +422,30 @@
       "sampleSrc": "https://open.spotify.com/embed/track/6OyKBwLzq4h15XmxeWf5n4"
     }
   ],
-  "saved": []
+  "saved": [
+    {
+      "name": "Man Of The Year",
+      "artist": "Skales",
+      "image": "https://is4-ssl.mzstatic.com/image/thumb/Music115/v4/22/5f/eb/225febda-b033-bb65-8b36-416dcad222d8/859714809788.png/1200x1200bf-60.jpg",
+      "year": "2015",
+      "sampleSrc": "https://open.spotify.com/embed/track/4btYeVhPo0QIbUxySZGjba?si=6c490fe708cf40e7",
+      "id": 1
+    },
+    {
+      "name": "LV N ATTN",
+      "artist": "Lojay",
+      "image": "https://i0.wp.com/exposafrica.com.ng/wp-content/uploads/2021/06/196938697_1388631731508896_3055309459495312369_n.jpg?fit=1080%2C1080&ssl=1",
+      "year": "2021",
+      "sampleSrc": "https://open.spotify.com/embed/track/1zwZ26A7OA5wTrA3FejCLL?si=84f08bcf27e9437c",
+      "id": 2
+    },
+    {
+      "name": "Discovery",
+      "artist": "Daft Punk",
+      "image": "https://upload.wikimedia.org/wikipedia/en/2/27/Daft_Punk_-_Discovery.png",
+      "year": "2001",
+      "sampleSrc": "https://open.spotify.com/embed/track/0DiWol3AO6WpXZgp0goxAV?si=ad52da25e7e245cc",
+      "id": 3
+    }
+  ]
 }

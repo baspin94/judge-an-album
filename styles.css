@@ -141,7 +141,17 @@ footer {
 }
 
 
-#saveButton {
+button {
     background-color: rgb(195, 166, 215);
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:  rgb(174, 127, 203);
+}
+
+button:active {
+    transform: scale(.90);
 }
