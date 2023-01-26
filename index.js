@@ -200,20 +200,9 @@ function renderAlbums(album) {
 
         // NEW - NICK - make save button be a functional remove button if the album was already saved
         fetch('http://localhost:3000/saved/')
-        .then(res=>res.json())
-        .then(data=> data.some(checkIfSaved));
-
-        function checkIfSaved(savedAlbum){
-            if ((savedAlbum.name === albumName.textContent) && (savedAlbum.artist === albumArtist.textContent)) {
-                saveButton.textContent = "Remove Album";
-                saveButton.id = `album_${savedAlbum.id}`;
-                return true;
-            } else {
-                saveButton.textContent = "Save Album";
-                saveButton.id = "";
-            }
-        }
-
+        .then(res => res.json())
+        .then(savedAlbumData => savedAlbumData.some(savedAlbum => checkIfSaved(savedAlbum, album, saveButton)));
+        
         // Insert div beneath big image and within the div adds the 'save' button.
         const div = document.createElement('div');
         singleAlbums.appendChild(div);
@@ -253,3 +242,14 @@ function removeAlbum(albumId) {
         method: 'DELETE'
     })
 };
+
+function checkIfSaved(savedAlbum, album, saveButton){
+    if ((savedAlbum.name === album.name) && (savedAlbum.artist === album.artist)) {
+        saveButton.textContent = "Remove Album";
+        saveButton.id = `album_${savedAlbum.id}`;
+        return true;
+    } else {
+        saveButton.textContent = "Save Album";
+        saveButton.id = "";
+    }
+}
