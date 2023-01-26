@@ -93,15 +93,18 @@ function nameArtistGrab(album) {
 // Add event listener for Saved Albums.
 function nameAndArtistEvent(nameAndArtist, album, saveButton) {
     nameAndArtist.addEventListener('click', ()=>{
-        const div = document.createElement('div');
+        /* const div = document.createElement('div');
         singleAlbums.innerHTML = '';
-        singleAlbumsContainer.style.display = "block"
-        buildBigAlbum(album, div, saveButton);
+        singleAlbumsContainer.style.display = "block" */
+        buildBigAlbum(album, saveButton);
     })
 };
 
 // Renders albums in the album viewing section of the page.
-function buildBigAlbum(album, div, saveButton) {
+function buildBigAlbum(album, saveButton) {
+    const div = document.createElement('div');
+    singleAlbums.innerHTML = '';
+    singleAlbumsContainer.style.display = "block"
     bigImage.src = album.image;
     spotifySampler.src = album.sampleSrc;
     // Grab album name from album object.
@@ -151,7 +154,7 @@ function renderAlbums(album) {
         albumMouse.textContent = `${album.artist} (${album.year})`
 
     // Grab song sample src from album object.
-    const albumSample = album.sampleSrc;
+    // const albumSample = album.sampleSrc;
 
     // Create div for each album thumbnail
     const thumbDiv = document.createElement("div");
@@ -207,10 +210,10 @@ function renderAlbums(album) {
 
         // Clear out whatever is currently in the album viewing area.
         let saveButton = makeButton(album);
-        const div = document.createElement('div');
+        /* const div = document.createElement('div');
         singleAlbums.innerHTML = '';
-        singleAlbumsContainer.style.display = "block"
-        buildBigAlbum(album, div, saveButton);
+        singleAlbumsContainer.style.display = "block" */
+        buildBigAlbum(album, saveButton);
 
         // NEW - NICK - make save button be a functional remove button if the album was already saved
         fetch('http://localhost:3000/saved/')
