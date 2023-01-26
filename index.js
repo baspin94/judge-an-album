@@ -96,6 +96,7 @@ function nameAndArtistEvent(nameAndArtist, album, saveButton) {
     })
 };
 
+// Grab album name from an album object.
 function getAlbumName(album){
     const albumName = document.createElement('h3');
     albumName.textContent = album.name;
@@ -104,22 +105,36 @@ function getAlbumName(album){
 
 // Renders albums in the album viewing section of the page.
 function buildBigAlbum(album, saveButton) {
-    const buttonDiv = document.createElement('div');
+
+    // Clear out previous album information from album viewing section.
     singleAlbums.innerHTML = '';
     singleAlbumsContainer.style.display = "block"
+
+    // Set big album image to the current album's image URL.
     bigImage.src = album.image;
+
+    // Set the Spotify Sampler iframe to the current album's sample URL.
     spotifySampler.src = album.sampleSrc;
+
     let albumName = getAlbumName(album);
+
     // Grab album artist from album object.    
     const bigAlbumArtist = document.createElement('h4');
-    bigAlbumArtist.textContent = album.artist;
+        bigAlbumArtist.textContent = album.artist;
+
     // Grab album year from album object.
     const bigAlbumYear = document.createElement('h4');
-    bigAlbumYear.textContent = album.year;
+        bigAlbumYear.textContent = album.year;
+
+    // Append album imformation to the album viewing area.
     singleAlbums.append(bigImage, albumName, bigAlbumArtist, bigAlbumYear);
+    
+    // Append save/remove button below the album information in the viewing area.
+    const buttonDiv = document.createElement('div');
     singleAlbums.appendChild(buttonDiv);
     buttonDiv.appendChild(saveButton);
-}
+
+};
 
 // Fetch and render album thumbnails when new genre is selected from the dropdown.
 genreSelect.addEventListener('change', (e) => {
