@@ -48,11 +48,22 @@ function saveButtonEvent(album, saveButton){
     return saveButton;
 }
 
+// Update button text and ID for 'Saved Album' buttons.
 function savedAlbumButton(saveButton, album) {
     saveButton.textContent = "Remove Album";
     saveButton.setAttribute('id', `album_${album.id}`);
 };
 
+// Grab name and artist from album object.
+function nameArtistGrab(album) {
+    const nameAndArtist = document.createElement('p');
+        nameAndArtist.setAttribute('id', `album_${album.id}`);
+        nameAndArtist.textContent = `"${album.name}" by ${album.artist}`;
+        sidebar.appendChild(nameAndArtist);
+        return nameAndArtist;
+}
+
+// Add event listener for Saved Albums.
 function nameAndArtistEvent(nameAndArtist, album, saveButton) {
     nameAndArtist.addEventListener('click', ()=>{
         const div = document.createElement('div');
@@ -74,15 +85,6 @@ function nameAndArtistEvent(nameAndArtist, album, saveButton) {
         div.appendChild(saveButton);
     })
 };
-
-// Grab name and artist from album object.
-function nameArtistGrab(album) {
-    const nameAndArtist = document.createElement('p');
-        nameAndArtist.setAttribute('id', `album_${album.id}`);
-        nameAndArtist.textContent = `"${album.name}" by ${album.artist}`;
-        sidebar.appendChild(nameAndArtist);
-        return nameAndArtist;
-}
 
 // Fetch and render album thumbnails when new genre is selected from the dropdown.
 genreSelect.addEventListener('change', (e) => {
