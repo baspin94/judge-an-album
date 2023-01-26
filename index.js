@@ -10,7 +10,7 @@ const bigImage = document.createElement('img');
     bigImage.setAttribute('id','bigImage');
 
 // Fetch and render 'Saved' albums on page load.
-fetch("http://localhost:3000/saved")
+fetch('http://localhost:3000/saved')
     .then(res => res.json())
     .then(data => data.forEach(album => renderSavedAlbum(album)));
 
@@ -33,11 +33,10 @@ function makeButton(album){
 // Add event listener to save button.
 function saveButtonEvent(album, saveButton){
     saveButton.addEventListener('click', ()=>{
-        if (saveButton.textContent === "Save Album") {
+        if (saveButton.textContent === 'Save Album') {
             saveAlbum(album, saveButton);
-        } else if (saveButton.textContent === "Remove Album") {
+        } else if (saveButton.textContent === 'Remove Album') {
             let albumId = saveButton.id.split('_')[1];
-            console.log("This album's ID is " + albumId);
             removeAlbum(albumId);
             let elementToRemove = document.querySelector(`p#album_${albumId}`);
             elementToRemove.remove();
@@ -49,13 +48,13 @@ function saveButtonEvent(album, saveButton){
 
 // Set button text to 'Save Album' and remove ID.
 function setBtnToSave(saveButton) {
-    saveButton.textContent = "Save Album";
-    saveButton.id = "";
+    saveButton.textContent = 'Save Album';
+    saveButton.id = '';
 }
 
 // Update button text to 'Remove Album' and add ID.
 function setBtnToRemove(saveButton, album) {
-    saveButton.textContent = "Remove Album";
+    saveButton.textContent = 'Remove Album';
     saveButton.setAttribute('id', `album_${album.id}`);
 };
 
@@ -72,14 +71,14 @@ function nameArtistGrab(album) {
     function populateStarOptions (){
         for (let i=1; i<6; i++){
             let starRatingOption = document.createElement('option');
-            starRatingOption.textContent = i+" Stars";
+            starRatingOption.textContent = i+' Stars';
             starRating.appendChild(starRatingOption)
         }
     }
     populateStarOptions();
     nameAndArtist.appendChild(starRating)
     starRating.addEventListener('change', (e)=>{
-        fetch("http://localhost:3000/saved/"+`${album.id}`, {
+        fetch('http://localhost:3000/saved/'+`${album.id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({rating: e.target.value})
@@ -108,7 +107,7 @@ function buildBigAlbum(album, saveButton) {
 
     // Clear out previous album information from album viewing section.
     singleAlbums.innerHTML = '';
-    singleAlbumsContainer.style.display = "block"
+    singleAlbumsContainer.style.display = 'block';
 
     // Set big album image to the current album's image URL.
     bigImage.src = album.image;
@@ -160,17 +159,17 @@ function renderAlbumThumbnails(album) {
         albumMouse.textContent = `${album.artist} (${album.year})`
 
     // Create div for each album thumbnail
-    const thumbDiv = document.createElement("div");
-        thumbDiv.setAttribute("class", "thumbnail");
+    const thumbDiv = document.createElement('div');
+        thumbDiv.setAttribute('class', 'thumbnail');
 
     // Create tooltip for each album thumbnail.
-    const albumDesc = document.createElement("div");
-        albumDesc.setAttribute("class", "tooltip");
+    const albumDesc = document.createElement('div');
+        albumDesc.setAttribute('class', 'tooltip');
         albumDesc.append(albumName, albumMouse);
 
     // Create event listener to show tooltip when mouse hovers over thumbnail.
-    albumImage.addEventListener("mouseover", () => {
-        albumDesc.style.display = "block"
+    albumImage.addEventListener('mouseover', () => {
+        albumDesc.style.display = 'block'
 
         // NEW - NICK - animation
         albumDesc.animate({
@@ -187,12 +186,12 @@ function renderAlbumThumbnails(album) {
     });
 
     // Create event listener to hide tooltip when mouse leaves thumbnail.
-    albumImage.addEventListener("mouseleave", () => {
+    albumImage.addEventListener('mouseleave', () => {
         // NEW - NICK - animation
         albumDesc.animate({
             width: ['200px', '0px']
                 }, 100
-            ).finished.then(()=>{albumDesc.style.display = "none"}
+            ).finished.then(()=>{albumDesc.style.display = 'none'}
         );
         function textAnimate(textElement){
             textElement.animate({
@@ -222,7 +221,7 @@ function renderAlbumThumbnails(album) {
 
 // Initate 'fetch' request to POST album to 'Saved'.
 function saveAlbum(album, saveButton) {                    
-        fetch("http://localhost:3000/saved", {
+        fetch('http://localhost:3000/saved', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -244,7 +243,7 @@ function saveAlbum(album, saveButton) {
 
 // Initiate 'fetch' request to DELETE album from 'Saved'.
 function removeAlbum(albumId) {
-    fetch("http://localhost:3000/saved/" + albumId, {
+    fetch('http://localhost:3000/saved/' + albumId, {
         method: 'DELETE'
     })
 };
