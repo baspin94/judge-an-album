@@ -190,6 +190,7 @@ function renderAlbums(album) {
 
         // Clear out whatever is currently in the album viewing area.
         singleAlbums.innerHTML = '';
+        singleAlbums.style.display = "block"
         bigImage.src = album.image;
         mainAppend();
 
@@ -198,6 +199,7 @@ function renderAlbums(album) {
         const saveButton = document.createElement('button');
             saveButton.setAttribute("type","button");
             saveButton.setAttribute("name","button");
+            saveButton.setAttribute("id","saveButton");
             if (album.post === true) {
                 saveButton.textContent = "Remove Album"
             } else {
@@ -264,6 +266,8 @@ function renderAlbums(album) {
             
             /* // Convert genre name to lowercase to be inserted into URL during fetch.
             genreCurrent = genreSelect.value.toLowerCase();
+
+            
 
             
             // Append the name and artist to 'Saved Albums', update button text, set album 'post' status to true, calls the saveAlbum function.
