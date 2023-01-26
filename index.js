@@ -17,7 +17,7 @@ fetch("http://localhost:3000/saved")
 // Grab name and artist from album object and then add event listener to it.
 function renderSavedAlbum(album) {
     let button = makeButton(album);
-    savedAlbumButton(button, album);
+    setBtnToRemove(button, album);
     let nameArtist = nameArtistGrab(album);
     nameAndArtistEvent(nameArtist, album, button);
 };
@@ -48,8 +48,14 @@ function saveButtonEvent(album, saveButton){
     return saveButton;
 }
 
-// Update button text and ID for 'Saved Album' buttons.
-function savedAlbumButton(saveButton, album) {
+// Set button text to 'Save Album' and remove ID.
+function setBtnToSave(saveButton) {
+    saveButton.textContent = "Save Album";
+    saveButton.id = "";
+}
+
+// Update button text to 'Remove Album' and add ID.
+function setBtnToRemove(saveButton, album) {
     saveButton.textContent = "Remove Album";
     saveButton.setAttribute('id', `album_${album.id}`);
 };
