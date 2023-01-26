@@ -377,24 +377,5 @@
       "sampleSrc": "https://open.spotify.com/embed/track/6OyKBwLzq4h15XmxeWf5n4"
     }
   ],
-  "saved": [
-    {
-      "name": "American Football",
-      "artist": "American Football",
-      "image": "https://upload.wikimedia.org/wikipedia/en/e/e6/American_football_band_lp_cover.png",
-      "year": 1999,
-      "sampleSrc": "https://open.spotify.com/embed/track/6kZqCqD1r08sJAQ1TjuEpM?si=84975dc4f7884788",
-      "id": 1,
-      "rating": "4 Stars"
-    },
-    {
-      "name": "The Book of Thump",
-      "artist": "Thumpasaurus",
-      "image": "https://f4.bcbits.com/img/a2631715556_16.jpg",
-      "year": 2018,
-      "sampleSrc": "https://open.spotify.com/embed/track/3EvgbMCKteYK455NJJY7bU?si=54d4308bd5b145b8",
-      "id": 2,
-      "rating": "3 Stars"
-    }
-  ]
+  "saved": []
 }
