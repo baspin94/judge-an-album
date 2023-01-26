@@ -171,4 +171,5 @@ button:active {
 #sidebar p:active{
     background: rgb(255, 225, 169);
     cursor: pointer;
+    transform: scale(.95);
 }

@@ -6,6 +6,7 @@
       "artist": "Skales",
       "image": "https://is4-ssl.mzstatic.com/image/thumb/Music115/v4/22/5f/eb/225febda-b033-bb65-8b36-416dcad222d8/859714809788.png/1200x1200bf-60.jpg",
       "year": "2015",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/4btYeVhPo0QIbUxySZGjba?si=6c490fe708cf40e7"
     },
     {
@@ -14,6 +15,7 @@
       "artist": "Lojay",
       "image": "https://i0.wp.com/exposafrica.com.ng/wp-content/uploads/2021/06/196938697_1388631731508896_3055309459495312369_n.jpg?fit=1080%2C1080&ssl=1",
       "year": "2021",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/1zwZ26A7OA5wTrA3FejCLL?si=84f08bcf27e9437c"
     },
     {
@@ -22,6 +24,7 @@
       "artist": "Rotimi",
       "image": "https://i1.sndcdn.com/artworks-6dc3c3ee-8300-4ed7-9458-29e34d8f9c17-0-t500x500.jpg",
       "year": "2021",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/4kuI49v7kDyPLVv9VzHroB?si=95bc2b6898064450"
     },
     {
@@ -30,6 +33,7 @@
       "artist": "Nelson Freitas",
       "image": "https://i.scdn.co/image/ab67616d0000b27357c199ee171e147ef764a5fc",
       "year": "2019",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/3vo1ZZBNBXXLQvaZ9JWIqh?si=919889641a4f4ccb"
     },
     {
@@ -38,6 +42,7 @@
       "artist": "Adekunle Gold",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcdKO_b2QErZpq1H19rktozPk9LgWlW2EXZg&usqp=CAU",
       "year": "2020",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/2Iv3GHM3xFKIPbYSnhJAXO?si=2699246a56e14127"
     }
   ],
@@ -48,6 +53,7 @@
       "artist": "Midnight Hour",
       "image": "https://i.scdn.co/image/ab67616d0000b273076fe8761150cc4f752d5298",
       "year": "2022",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/7lIRraua9QbeCTTd1F80FK?si=3d583c4a13d74fa3"
     },
     {
@@ -56,6 +62,7 @@
       "artist": "Noji",
       "image": "https://i.scdn.co/image/ab67616d0000b27306f216f6d3526db92c5ccf54",
       "year": "2022",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/35bkfQzstqvT9pCGbQbdSb?si=83515b04945e4cf6"
     },
     {
@@ -64,6 +71,7 @@
       "artist": "Revoir",
       "image": "https://i.scdn.co/image/ab67616d0000b2732ed17e6b2deb792666e7b5b7",
       "year": "2022",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/7b8typZKTFHbGA1jivtORb?si=54715e878bce4a22"
     },
     {
@@ -72,6 +80,7 @@
       "artist": "Thymes",
       "image": "https://i.scdn.co/image/ab67616d0000b273bb512fa20ad112d4eba1f332",
       "year": "2022",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/6S9AZMQgnpeYp8cWXt3nWZ?si=dcba0e8a8d1d46bb"
     },
     {
@@ -80,6 +89,7 @@
       "artist": "Sutton",
       "image": "https://i.scdn.co/image/ab67616d0000b27397d2147154276965f615cce9",
       "year": "2023",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/0MnD0cH2g0h4WPFddCHh6R?si=1c9cd286836c48a7"
     }
   ],
@@ -90,6 +100,7 @@
       "artist": "Missy Elliot",
       "image": "https://upload.wikimedia.org/wikipedia/en/9/93/Under_Construction_Cover.jpg",
       "year": "2002",
+      "post": true,
       "sampleSrc": "https://open.spotify.com/embed/track/3jagJCUbdqhDSPuxP8cAqF?si=070c77f8b3b44b16"
     },
     {
@@ -98,6 +109,7 @@
       "artist": "Lauryn Hill",
       "image": "https://upload.wikimedia.org/wikipedia/en/5/55/LaurynHillTheMiseducationofLaurynHillalbumcover.jpg",
       "year": "1998",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/0uEp9E98JB5awlA084uaIg?si=9a6c64d88692478a"
     },
     {
@@ -106,6 +118,7 @@
       "artist": "Aaliyah",
       "image": "https://upload.wikimedia.org/wikipedia/en/a/a8/Aaliyah_-_One_in_a_Million_%28album_cover%29.png",
       "year": "1996",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/6gdhHMWUv1pvkOHqCUGvCp?si=de999e14bb1a4080"
     },
     {
@@ -114,6 +127,7 @@
       "artist": "Blackstreet",
       "image": "https://i.scdn.co/image/ab67616d0000b27303ca37157b9ceefbe8fe225b",
       "year": "1996",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/6MdqqkQ8sSC0WB4i8PyRuQ?si=c03f581cfea94544"
     },
     {
@@ -122,6 +136,7 @@
       "artist": "Outkast",
       "image": "https://upload.wikimedia.org/wikipedia/en/2/2c/AqueminiOutKast.jpg",
       "year": "1999",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/0shK5iZQppbHPQYiy60xs9?si=7d0a963dde1544ca"
     }
   ],
@@ -132,6 +147,7 @@
       "artist": "Daft Punk",
       "image": "https://upload.wikimedia.org/wikipedia/en/2/27/Daft_Punk_-_Discovery.png",
       "year": "2001",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/0DiWol3AO6WpXZgp0goxAV?si=ad52da25e7e245cc"
     },
     {
@@ -140,6 +156,7 @@
       "artist": "Calvin Harris",
       "image": "https://upload.wikimedia.org/wikipedia/en/0/07/Calvin_Harris_-_Feel_So_Close.png",
       "year": "2011",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/1gihuPhrLraKYrJMAEONyc?si=87cf085a7c3447b6"
     },
     {
@@ -148,6 +165,7 @@
       "artist": "Pegboard Nerds",
       "image": "https://upload.wikimedia.org/wikipedia/en/2/27/Pegboard_Nerds_Nerds_by_Nature_EP_Cover.jpeg",
       "year": "2017",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/0cq2p8SLy0bPVcPASci6og?si=e6f5378f47074145"
     },
     {
@@ -156,6 +174,7 @@
       "artist": "Avicii",
       "image": "https://upload.wikimedia.org/wikipedia/en/e/e5/Avicii_-_True_%28Album%29.png",
       "year": "2013",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/0nrRP2bk19rLc0orkWPQk2?si=95ebbc552af24d56"
     },
     {
@@ -164,6 +183,7 @@
       "artist": "David Guetta",
       "image": "https://upload.wikimedia.org/wikipedia/en/4/42/David_Guetta_-_Nothing_but_the_Beat.png",
       "year": "2011",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/77TT8Xvx637TpzV8kKGkUw?si=a2a05adf940c4a77"
     }
   ],
@@ -174,6 +194,7 @@
       "artist": "Renee Fleming",
       "image": "https://upload.wikimedia.org/wikipedia/en/7/79/Po%C3%A8mes_album_cover.jpg",
       "year": "2012",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/46KWXRQ48Sl8cx4XHjYUtS?si=87c8b74c24244a63"
     },
     {
@@ -182,6 +203,7 @@
       "artist": "Andrea Bocelli",
       "image": "https://upload.wikimedia.org/wikipedia/en/e/ed/Andrea_Bocelli%2C_Incanto.jpg",
       "year": "2008",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/0xNXoChhoYcJOdEMRGKoXW?si=b8b585bd27c649e3"
     },
     {
@@ -190,6 +212,7 @@
       "artist": "Luciano Pavarotti",
       "image": "https://upload.wikimedia.org/wikipedia/en/0/0c/Pavarotti_-_Ultimate_Collection_album_cover.jpg",
       "year": "2007",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/2FbfSaGWh2FFSp4jOueNod?si=9b84be4036b541d4"
     },
     {
@@ -198,6 +221,7 @@
       "artist": "Jessye Norman",
       "image": "https://m.media-amazon.com/images/I/51WCg9+WX0L._SY1000_.jpg",
       "year": "1986",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/06Pr14olGbojM1Qbo4gl1q?si=373345b735ba412e"
     },
     {
@@ -206,6 +230,7 @@
       "artist": "Joyce DiDonato",
       "image": "https://i.discogs.com/7y1mUjSEGDj8Q2lBk-93AZEGcouBtyT7QILy-_Mrzkw/rs:fit/g:sm/q:90/h:596/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY3ODA4/MTMtMTQyNjQ4NjU5/NS01ODE4LmpwZWc.jpeg",
       "year": "2006",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/0XasOAGrpcVtxOFKAFZoeC?si=e8d3adc2e8a54dbe"
     }
   ],
@@ -216,6 +241,7 @@
       "artist": "Billie Holiday",
       "image": "https://upload.wikimedia.org/wikipedia/en/e/ec/Billiesolitude.jpg",
       "year": "1956",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/1pZn8AX1WulW8IO338hE5D?si=ee02805eaac44377"
     },
     {
@@ -224,6 +250,7 @@
       "artist": "Ella Fitzgerald",
       "image": "https://upload.wikimedia.org/wikipedia/en/c/c6/SongsinaMellowMood.jpg",
       "year": "1954",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/2yAgRXrm92L1ZsyAD0eDle?si=96f3882b835c46fe"
     },
     {
@@ -232,6 +259,7 @@
       "artist": "Louis Armstrong",
       "image": "https://upload.wikimedia.org/wikipedia/en/b/b1/Louis_World_String.jpeg",
       "year": "1960",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/4mso2dacphOfI1JMuaH6Hw?si=45853bded50a4d54"
     },
     {
@@ -240,6 +268,7 @@
       "artist": "Ray Charles",
       "image": "https://upload.wikimedia.org/wikipedia/en/5/54/WhatdISay.jpg",
       "year": "1959",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/5yQ9iMZXGcr5rlO4hoLsP4?si=f75dd07771ca470a"
     },
     {
@@ -248,6 +277,7 @@
       "artist": "Nina Simone",
       "image": "https://upload.wikimedia.org/wikipedia/en/0/02/Ninasimoneasinglewoman.jpg",
       "year": "1993",
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/159F1pdX35fbRevVBbjTFw?si=1730bbf8083c4905"
     }
   ],
@@ -258,6 +288,7 @@
       "artist": "Vulfpeck",
       "image": "https://i.ytimg.com/vi/wJIFJ-L-Lw8/maxresdefault.jpg",
       "year": 2015,
+      "post": true,
       "sampleSrc": "https://open.spotify.com/embed/track/1DrlLvlYd1FIjNavRm6NdX?si=9ce4188825bd44bd"
     },
     {
@@ -266,6 +297,7 @@
       "artist": "Thumpasaurus",
       "image": "https://f4.bcbits.com/img/a2631715556_16.jpg",
       "year": 2018,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/3EvgbMCKteYK455NJJY7bU?si=54d4308bd5b145b8"
     },
     {
@@ -274,6 +306,7 @@
       "artist": "Funkadelic",
       "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRUif26ILRdY3denB1duNmx2pBBovN1HHHH08kPzKKVPN_2DnXs",
       "year": 1971,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/5lc9L9FeLBwlJPgEbq9uEw?si=b9ed1450cdd44374"
     },
     {
@@ -282,6 +315,7 @@
       "artist": "Herbie Hancock",
       "image": "https://upload.wikimedia.org/wikipedia/en/5/54/Herbie-Hancock-Head-Hunters.png",
       "year": 1973,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/2zQl59dZMzwhrmeSBEgiXY?si=069f8ea9e0c64d44"
     },
     {
@@ -290,6 +324,7 @@
       "artist": "Love the System",
       "image": "https://i.scdn.co/image/ab67616d00001e024b392f111c470848f620b9c8",
       "year": 2022,
+      "post": true,
       "sampleSrc": "https://open.spotify.com/embed/track/1Avb92mPm7EqqVH1IaXNmi?si=3831dceeefc242e8"
     }
   ],
@@ -300,6 +335,7 @@
       "artist": "NOFX",
       "image": "https://upload.wikimedia.org/wikipedia/en/1/19/NOFX_-_Punk_in_Drublic_cover.jpg",
       "year": 1994,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/4uB28m7RAflobYpnLMb6A2?si=e875e056b3bb402a"
     },
     {
@@ -308,6 +344,7 @@
       "artist": "Descendents",
       "image": "https://upload.wikimedia.org/wikipedia/en/a/a1/Descendents_-_Milo_Goes_to_College_cover.jpg",
       "year": 1982,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/5Jd6yfhjjmDxODdvYTjscz?si=bffa103203084bb9"
     },
     {
@@ -316,6 +353,7 @@
       "artist": "Rancid",
       "image": "https://upload.wikimedia.org/wikipedia/en/0/08/Rancid_-_...And_Out_Come_the_Wolves_cover.jpg",
       "year": 1995,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/41kg2RvdwBuIv0OPpvBS4v?si=cd1bbc8422624e47"
     },
     {
@@ -324,6 +362,7 @@
       "artist": "Blink-182",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREkGQGkDTJG0lPSEewXfTBurgiTJ7gF4UvW4DyOqvrUf2GFZOn",
       "year": 1997,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/6HvUYS1xDfTCGWoeVrv3XS?si=0c1e3040b4da483e"
     },
     {
@@ -332,6 +371,7 @@
       "artist": "Ramones",
       "image": "https://upload.wikimedia.org/wikipedia/en/b/bb/Ramones_-_Ramones_cover.jpg",
       "year": 1976,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/4KcH1ZRV2W1q7Flq0QqC76?si=b6b17b8d216b4310"
     }
   ],
@@ -342,6 +382,7 @@
       "artist": "American Football",
       "image": "https://upload.wikimedia.org/wikipedia/en/e/e6/American_football_band_lp_cover.png",
       "year": 1999,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/6kZqCqD1r08sJAQ1TjuEpM?si=84975dc4f7884788"
     },
     {
@@ -350,6 +391,7 @@
       "artist": "Thursday",
       "image": "https://upload.wikimedia.org/wikipedia/en/2/23/Thursday%2BFull%2BCollapse.jpg",
       "year": 2001,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/3U5TzKrZP6sqiR43LQArV7?si=33056efdb70547d3"
     },
     {
@@ -358,6 +400,7 @@
       "artist": "The Hotelier",
       "image": "https://upload.wikimedia.org/wikipedia/en/a/a6/The_hotelier_home.jpg",
       "year": 2014,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/5wwbe5wtc4pd9RDlFNXeFg?si=a9132444fbc749ac"
     },
     {
@@ -366,6 +409,7 @@
       "artist": "Sunny Day Real Estate",
       "image": "https://upload.wikimedia.org/wikipedia/en/a/a6/Sunny_Day_Real_Estate_-_Diary.jpg",
       "year": 1994,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/7MtlureL5VXmDnyoUeBxsd?si=90de5a343cee4d8b"
     },
     {
@@ -374,17 +418,26 @@
       "artist": "Taking Back Sunday",
       "image": "https://upload.wikimedia.org/wikipedia/en/e/ef/Tellallyourfriends.jpg",
       "year": 2002,
+      "post": false,
       "sampleSrc": "https://open.spotify.com/embed/track/6OyKBwLzq4h15XmxeWf5n4"
     }
   ],
   "saved": [
     {
-      "name": "Discovery",
-      "artist": "Daft Punk",
-      "image": "https://upload.wikimedia.org/wikipedia/en/2/27/Daft_Punk_-_Discovery.png",
-      "year": "2001",
-      "sampleSrc": "https://open.spotify.com/embed/track/0DiWol3AO6WpXZgp0goxAV?si=ad52da25e7e245cc",
-      "id": 1
+      "name": "Aquemini",
+      "artist": "Outkast",
+      "image": "https://upload.wikimedia.org/wikipedia/en/2/2c/AqueminiOutKast.jpg",
+      "year": "1999",
+      "sampleSrc": "https://open.spotify.com/embed/track/0shK5iZQppbHPQYiy60xs9?si=7d0a963dde1544ca",
+      "id": 2
+    },
+    {
+      "name": "American Football",
+      "artist": "American Football",
+      "image": "https://upload.wikimedia.org/wikipedia/en/e/e6/American_football_band_lp_cover.png",
+      "year": 1999,
+      "sampleSrc": "https://open.spotify.com/embed/track/6kZqCqD1r08sJAQ1TjuEpM?si=84975dc4f7884788",
+      "id": 3
     }
   ]
 }
