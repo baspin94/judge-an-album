@@ -41,8 +41,7 @@ function saveButtonEvent(album, saveButton){
             removeAlbum(albumId);
             let elementToRemove = document.querySelector(`p#album_${albumId}`);
             elementToRemove.remove();
-            saveButton.textContent = "Save Album";
-            saveButton.id = "";
+            setBtnToSave(saveButton);
         }
     })
     return saveButton;
