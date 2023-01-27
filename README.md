@@ -22,6 +22,9 @@ $ open index.html
 
 ## Usage
 ### User Experience
+
+
+
 Users start by selecting a genre from the dropdown list. Five albums will appear on the right side of the screen.
 
 Users can mouseover each album cover to see the album name, artist, and year it was released. 
@@ -41,6 +44,7 @@ For more information on how the various features work "under the hood", there ar
 Future additions include:
 - pulling data from a larger API
 - a more complete list of genres
+- having star icons in the star-rating dropdown menu
 - making the 5 albums a random selection from the given genre
 - a login so users can return to their own account to update their list and discover more music
 
