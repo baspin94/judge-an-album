@@ -35,6 +35,7 @@ All saved albums have a dropdown list of their own in which the user can give a 
 Albums in the Saved Albums list can be clicked to repopulate the album details in the center of the screen.
 
 ### For Developers
+For more information on how the various features work "under the hood", there are comments attached to each function in the index.js file explaining the functionality its responsible for.
 
 ## Roadmap
 Future additions include:
