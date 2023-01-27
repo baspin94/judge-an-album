@@ -20,9 +20,16 @@ Then, open the application by running the following code from the terminal:
 $ open index.html
 ```
 
-
 ## Usage
+### User Experience
+### For Developers
 
 ## Roadmap
+Future additions include:
+- pulling data from a larger API
+- a more complete list of genres
+- making the 5 albums a random selection from the given genre
+- a login so users can return to their own account to update their list and discover more music
 
 ## Authors and Acknowledgement
+This project was created by [Bianca Aspin](https://github.com/baspin94), [Ari Marz](https://github.com/arimarz), and [Nick Johnson](https://github.com/bricknet1) while attending the Flatiron School's Software Engineering Immersive Bootcamp.
