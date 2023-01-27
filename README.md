@@ -22,6 +22,18 @@ $ open index.html
 
 ## Usage
 ### User Experience
+Users start by selecting a genre from the dropdown list. Five albums will appear on the right side of the screen.
+
+Users can mouseover each album cover to see the album name, artist, and year it was released. 
+
+Upon clicking on the album cover, a larger image will populate in the center of the screen, along with the album name, artist, and year it was released, as well as a Spotify widget to hear a song sample from that album. 
+
+The Save Album button will add the album to the Saved Albums list on the left side. The Save Album button will be a Remove Album button if the album is already saved. 
+
+All saved albums have a dropdown list of their own in which the user can give a rating of 1-5 stars. 
+
+Albums in the Saved Albums list can be clicked to repopulate the album details in the center of the screen.
+
 ### For Developers
 
 ## Roadmap
@@ -33,3 +45,5 @@ Future additions include:
 
 ## Authors and Acknowledgement
 This project was created by [Bianca Aspin](https://github.com/baspin94), [Ari Marz](https://github.com/arimarz), and [Nick Johnson](https://github.com/bricknet1) while attending the Flatiron School's Software Engineering Immersive Bootcamp.
+
+The album sampler uses [Spotify's iFrame API](https://developer.spotify.com/documentation/embeds/guides/using-the-iframe-api/).
