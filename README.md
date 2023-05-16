@@ -23,19 +23,29 @@ $ open index.html
 ## Usage
 ### User Experience
 
-
-
 Users start by selecting a genre from the dropdown list. Five albums will appear on the right side of the screen.
 
-Users can mouseover each album cover to see the album name, artist, and year it was released. 
+![User selecting genre from dropdown menu](https://github.com/baspin94/judge-an-album/blob/main/assets/01_Select%20Genre.gif)
 
-Upon clicking on the album cover, a larger image will populate in the center of the screen, along with the album name, artist, and year it was released, as well as a Spotify widget to hear a song sample from that album. 
+Users can mouseover each album cover to see the album name, artist, and year it was released.
 
-The Save Album button will add the album to the Saved Albums list on the left side. The Save Album button will be a Remove Album button if the album is already saved. 
+![User hovering over album thumbnails to reveal additional details](https://github.com/baspin94/judge-an-album/blob/main/assets/02_Album%20Thumbnails.gif)
 
-All saved albums have a dropdown list of their own in which the user can give a rating of 1-5 stars. 
+Upon clicking on the album cover, a larger image will populate in the center of the screen, along with the album name, artist, and year it was released, as well as a Spotify widget to hear a song sample from that album.
+
+![User clicking on album thumbnails to display larger images of each album and a Spotify widget to play an audio sample](https://github.com/baspin94/judge-an-album/blob/main/assets/03_Display%20Album.gif)
+
+The Save Album button will add the album to the Saved Albums list on the left side. All saved albums have a dropdown list of their own in which the user can give a rating of 1-5 stars. 
+
+![User clicking 'Save Album' button to add album to 'Saved Albums' panel and then clicking the dropdown menu next to the new saved album to add a rating](https://github.com/baspin94/judge-an-album/blob/main/assets/04_Save%20and%20Rate%20Album.gif)
 
 Albums in the Saved Albums list can be clicked to repopulate the album details in the center of the screen.
+
+![User clicking on album in 'Saved Albums' Panel to display it in the center of the screen](https://github.com/baspin94/judge-an-album/blob/main/assets/05_Repopulate%20Album.gif)
+
+The Save Album button will be a Remove Album button if the album is already saved.
+
+![User clicking the 'Remove Album' button to remove album from 'Saved Albums' panel](https://github.com/baspin94/judge-an-album/blob/main/assets/06_Remove%20Saved%20Album.gif)
 
 ### For Developers
 For more information on how the various features work "under the hood", there are comments attached to each function in the index.js file explaining the functionality its responsible for.
